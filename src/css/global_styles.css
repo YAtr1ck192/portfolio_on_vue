@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "rm";
+    src: url("@/assets/fonts/Rubik-Medium.ttf");
+}
+@font-face {
+    font-family: "rr";
+    src: url("@/assets/fonts/Rubik-Regular.ttf");
+}
+@font-face {
+    font-family: "rB";
+    src: url("@/assets/fonts/Rubik-Bold.ttf");
+}
+.container {
+    width: 100%;
+    max-width: 940px;
+    margin: 0 auto;
+}
