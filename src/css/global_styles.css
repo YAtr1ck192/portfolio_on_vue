@@ -41,7 +41,7 @@
 }
 @media screen and (min-width: 941px) and (max-width: 1000px) {
     .container {
-        width: 100%;
+        width: 100%; /*нет смысла повторять один и тот же стиль, он у тебя не меняется в зависимости от экрана*/
         padding: 0 26px 0 26px;
     }
 }
