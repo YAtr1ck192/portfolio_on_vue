@@ -86,5 +86,29 @@ export default {
       color: #6E38F7;
       background: white;
   }
+  @media screen and (min-width: 320px) and (max-width: 619px){
+      .form-group {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-wrap: wrap;
+          width: 288px;
+      }
+      .form-group textarea {
+          width: 288px;
+          height: 120px;
+      }
+      .form-group input {
+          width: 100%;
+      }
+      .form-group input:first-child {
+          margin-right: 0;
+      }
+      .form-button {
+          width: 288px;
+          height: 46px;
+          margin-bottom: 84px;
+      }
+  }
 
 </style>

@@ -131,4 +131,43 @@ export default {
     width: 100%;
     max-width: 940px;
 }
+@media screen and (min-width: 620px) and (max-width: 819px) {
+    .card-desc {
+        overflow: scroll;
+        overflow-x:hidden;
+        height: 172px;
+    }
+    .card-desc p{
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+    }
+    .skills-block {
+        margin-top: 100px;
+    }
+}
+@media screen and (min-width: 320px) and (max-width: 619px){
+    .card-desc {
+        overflow: scroll;
+        overflow-x:hidden;
+        height: 172px;
+    }
+    .card-desc p{
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+    }
+    .skills-block {
+        margin-top: 176px;
+    }
+    .skill-card {
+        width: 288px;
+    }
+    .skill-cards {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+}
 </style>

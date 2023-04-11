@@ -21,7 +21,6 @@ export default {
 </script>
 
 <style scoped>
-
     header {
         width: 100%;
         background: #fff;
@@ -32,7 +31,6 @@ export default {
         justify-content: space-between;
         background: white;
     }
-
     .header-logo {
         padding: 20px 0;
         align-items: center;
@@ -58,4 +56,69 @@ export default {
         display: none;
         position: relative;
     }
+    @media screen and (min-width: 820px) and (max-width: 940px) {
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+        }
+        nav a {
+            display: none;
+        }
+        nav {
+            width: 20px;
+            height: 17px;
+        }
+        nav .menu-burger{
+            display: block;
+            width: 24px;
+            height: 17px;
+        }
+    }
+    @media screen and (min-width: 620px) and (max-width: 819px) {
+        nav a {
+            display: none;
+        }
+        nav {
+            width: 20px;
+            height: 17px;
+        }
+        nav .menu-burger{
+            display: block;
+            width: 24px;
+            height: 17px;
+        }
+        header {
+            position: sticky;
+            top: 0;
+        }
+    }
+    @media screen and (min-width: 320px) and (max-width: 619px){
+        .container {
+            width: 100%;
+            padding: 0 16px 0 16px;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+        }
+        nav a {
+            display: none;
+        }
+        nav {
+            width: 20px;
+            height: 17px;
+        }
+        nav .menu-burger{
+            display: block;
+            width: 24px;
+            height: 17px;
+        }
+    }
+
 </style>

@@ -49,4 +49,22 @@ export default {
   nav .nav-item:hover {
       border-bottom: solid 1px #6E38F7;
   }
+  @media screen and (min-width: 820px) and (max-width: 940px) {
+      .menu-burger-content a {
+          font-size: 26px;
+          margin: 15px 0;
+      }
+  }
+  @media screen and (min-width: 620px) and (max-width: 819px) {
+      .menu-burger-content a {
+          font-size: 26px;
+          margin: 15px 0;
+      }
+  }
+  @media screen and (min-width: 320px) and (max-width: 619px){
+      .menu-burger-content a {
+          font-size: 24px;
+          margin: 13px 0;
+      }
+  }
 </style>

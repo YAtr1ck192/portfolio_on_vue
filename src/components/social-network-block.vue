@@ -104,5 +104,50 @@ export default {
     max-height: 70px;
     padding-top: 3px;
 }
-
+  @media screen and (min-width: 1001px) and (max-width: 1200px){
+      .slider-track {
+          overflow: hidden;
+          max-width: 460px;
+      }
+  }
+  @media screen and (min-width: 941px) and (max-width: 1000px) {
+      .slider-track {
+          overflow: hidden;
+          max-width: 460px;
+      }
+  }
+  @media screen and (min-width: 820px) and (max-width: 940px) {
+      .slider-track {
+          overflow: hidden;
+          max-width: 460px;
+      }
+  }
+  @media screen and (min-width: 620px) and (max-width: 819px) {
+      .slider-track {
+          overflow: hidden;
+          max-width: 460px;
+      }
+      .slider-arrow-left {
+          left: 10px;
+      }
+      .slider-arrow-right {
+          right: 10px;
+      }
+  }
+  @media screen and (min-width: 320px) and (max-width: 619px){
+      .slider-track {
+          overflow: hidden;
+          max-width: 160px;
+      }
+      .slider-arrow-left {
+          left: 10px;
+      }
+      .slider-arrow-right {
+          right: 10px;
+      }
+      .slider-track {
+          overflow: hidden;
+          max-width: 140px;
+      }
+  }
 </style>

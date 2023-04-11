@@ -48,4 +48,51 @@ export default {
     font-size: 12px;
     font-family: "rm";
 }
+@media screen and (min-width: 820px) and (max-width: 940px) {
+    .main-info-left-part .person-name {
+        max-width: 200px;
+    }
+}
+@media screen and (min-width: 620px) and (max-width: 819px) {
+    .main-info-left-part .person-name {
+        max-width: 300px;
+    }
+    .main-info{
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+    .main-info-left-part .person-name {
+        margin-top: 10px;
+        margin-bottom: 15px;
+    }
+    .main-info-left-part .small-p {
+        margin-bottom: 30px;
+    }
+    .main-info .main-image {
+        margin-top: 26px;
+        margin-bottom: 76px;
+    }
+    .main-image{
+        position: static;
+        width: 558px;
+    }
+}
+@media screen and (min-width: 320px) and (max-width: 619px){
+    .main-info{
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+    .main-info-left-part .person-name {
+        margin-top: 10px;
+        margin-bottom: 15px;
+    }
+    .main-info-left-part .small-p {
+        margin-bottom: 30px;
+    }
+    .main-info .main-image {
+        position: static;
+        margin-top: 26px;
+        width: 100%;
+    }
+}
 </style>
