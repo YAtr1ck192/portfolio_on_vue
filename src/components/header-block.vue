@@ -8,7 +8,7 @@
                 <a class="nav-item" href="#social">SOCIAL</a>
                 <a class="nav-item" href="#contact">CONTACT US</a>
                 <a class="nav-item" href="#">BLOG</a>
-                <img src="src/assets/images/menu-burger.png" alt="menu-burger" class="menu-burger">
+                <img src="../assets/images/menu-burger.png" alt="menu-burger" class="menu-burger">
             </nav>
         </div>
     </header>
