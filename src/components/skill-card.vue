@@ -1,12 +1,18 @@
 <template>
     <div class="skill-card">
-        <div class="top-item-skill-card">
+        <div @click="activeCard" class="top-item-skill-card">
             <div class="card-title">{{cardTitle}}</div>
             <button class="skill-card-button">+</button>
         </div>
         <div class="card-desc ">
-            <p>Do you sometimes have the feeling that you’re running into the same obstacles over and over again? Many of my conflicts have the same feel to them, like “Hey, I think I’ve been here before,” but I can’t figure out how I wound up in the same place.</p>
-            <p>The situation is different, but the conflict feels the same. I first read this poem in “The Tibetan Book of Living and Dying” by Sogyal Rinpoche. When I “Googled” it, I found fourteen pages of links. It’s clearly a favorite with many people; I know it speaks volumes to me. “Autobiography in Five Chapters”</p>
+            <p>Do you sometimes have the feeling that you’re running into the same obstacles over and over again?
+                Many of my conflicts have the same feel to them, like “Hey,
+                I think I’ve been here before,” but I can’t figure out how I wound up in the same place.
+            </p>
+            <p>The situation is different, but the conflict feels the same. I first read this poem in “The Tibetan Book of Living and Dying” by
+                Sogyal Rinpoche. When I “Googled” it, I found fourteen pages of links. It’s clearly a favorite with many people;
+                I know it speaks volumes to me. “Autobiography in Five Chapters”
+            </p>
         </div>
     </div>
 </template>
@@ -14,7 +20,17 @@
 <script>
 export default {
     name: "skill-card",
-    props: ['cardTitle']
+    props: ['cardTitle'],
+    methods: {
+        activeCard(event) {
+            document.querySelectorAll('.active-card').forEach((el) => el.classList.remove('active-card'));
+            event.target.parentNode.classList.add('active-card');
+            document.querySelectorAll('.card-desc').forEach((el) => el.style.display = 'none');
+            event.target.nextSibling.style.display = 'block';
+            document.querySelectorAll('.skill-card-button').forEach((el) => el.textContent = '+');
+            event.target.lastChild.textContent = '-';
+        }
+    }
 }
 </script>
 
