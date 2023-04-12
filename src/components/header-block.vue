@@ -4,7 +4,7 @@
             <div class="container">
                 <a href="#"><img class="header-logo" src="../assets/images/header-logo.png" alt="header-logo"></a>
                 <nav>
-                    <a class="nav-item" v-for="item in items" :key="item.navItem" :href=" '#' + item.navItem">{{ item.navItem }}</a>
+                    <a class="nav-item" v-for="item in items" :key="item.navItem" :href="'#' + item.navItem">{{ item.navItem }}</a>
                     <img src="../assets/images/menu-burger.png" alt="menu-burger" class="menu-burger">
                 </nav>
             </div>
@@ -88,6 +88,11 @@ export default {
             width: 24px;
             height: 17px;
         }
+    }
+    .slide img {
+        max-width: 120px;
+        max-height: 70px;
+        padding-top: 3px;
     }
     @media screen and (min-width: 620px) and (max-width: 819px) {
         nav a {

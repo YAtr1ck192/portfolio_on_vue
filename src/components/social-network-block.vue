@@ -9,23 +9,8 @@
             <img src="../assets/images/arrow-right.png" alt="slider-arrow" class="slider-arrow slider-arrow-right">
             <div class="wrapper">
                 <div class="slides">
-                    <div class="slide">
-                        <a href="#"><img src="../assets/images/telegram-icon.png" alt="social-network-logo"></a>
-                    </div>
-                    <div class="slide">
-                        <a href="#"><img src="../assets/images/whatsapp-icon.png" alt="social-network-logo"></a>
-                    </div>
-                    <div class="slide">
-                        <a href="#"><img src="../assets/images/instagram-icon.png" alt="social-network-logo"></a>
-                    </div>
-                    <div class="slide">
-                        <a href="#"><img src="../assets/images/facebook-icon.png" alt="social-network-logo"></a>
-                    </div>
-                    <div class="slide">
-                        <a href="#"><img src="../assets/images/youtube-icon.png" alt="social-network-logo"></a>
-                    </div>
-                    <div class="slide">
-                        <a href="#"><img src="../assets/images/twitter-icon.png" alt="social-network-logo"></a>
+                    <div class="slide" v-for="item in items" :key="item.src">
+                        <a href="#"><img :src="'../assets/images/' + item.src" alt="social-network-logo"></a>
                     </div>
                 </div>
             </div>
@@ -35,7 +20,23 @@
 
 <script>
 export default {
-    name: "social-network-block"
+    name: "social-network-block",
+    el:'#socialNetworkBlock',
+    data() {
+        return {
+            items:[
+                { src: 'telegram-icon.png' },
+                { src: 'whatsapp-icon.png' },
+                { src: 'instagram-icon.png' },
+                { src: 'facebook-icon.png' },
+                { src: 'youtube-icon.png' },
+                { src: 'twitter-icon.png' },
+            ]
+        }
+    },
+    methods: {
+
+    },
 }
 </script>
 
