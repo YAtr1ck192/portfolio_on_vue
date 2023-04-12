@@ -27,7 +27,6 @@ export default {
                 { navItem: 'BLOG' }
             ]
         }
-
     }
 }
 </script>
