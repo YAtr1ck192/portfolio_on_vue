@@ -23,12 +23,19 @@ export default {
     props: ['cardTitle'],
     methods: {
         activeCard(event) {
-            document.querySelectorAll('.active-card').forEach((el) => el.classList.remove('active-card'));
-            event.target.parentNode.classList.add('active-card');
-            document.querySelectorAll('.card-desc').forEach((el) => el.style.display = 'none');
-            event.target.nextSibling.style.display = 'block';
-            document.querySelectorAll('.skill-card-button').forEach((el) => el.textContent = '+');
-            event.target.lastChild.textContent = '-';
+            if (event.target.lastChild.textContent === '+'){
+                document.querySelectorAll('.active-card').forEach((el) => el.classList.remove('active-card'));
+                event.target.parentNode.classList.add('active-card');
+                document.querySelectorAll('.card-desc').forEach((el) => el.style.display = 'none');
+                event.target.nextSibling.style.display = 'block';
+                document.querySelectorAll('.skill-card-button').forEach((el) => el.textContent = '+');
+                event.target.lastChild.textContent = '-';
+                console.log(event.target.parentNode);
+            } else if(event.target.lastChild.textContent !== '+') {
+                document.querySelectorAll('.active-card').forEach((el) => el.classList.remove('active-card'));
+                document.querySelectorAll('.card-desc').forEach((el) => el.style.display = 'none');
+                document.querySelectorAll('.skill-card-button').forEach((el) => el.textContent = '+');
+            }
         }
     }
 }
@@ -39,10 +46,11 @@ export default {
         border: solid 1px #E1E5EE;
         border-radius: 4px;
         margin-bottom: 20px;
-        cursor: pointer;
     }
     .active-card {
         border: solid 1px #6E38F7;
+        border-radius: 4px;
+        margin-bottom: 20px;
     }
     .card-desc {
         display: none /*block*/;
