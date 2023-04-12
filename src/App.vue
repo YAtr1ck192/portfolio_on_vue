@@ -31,6 +31,9 @@ export default {
       FormBlock,
       FooterBlock,
   },
+    methods: {
+
+    }
 }
 </script>
 

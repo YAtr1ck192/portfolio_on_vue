@@ -1,16 +1,26 @@
 <template>
     <div class="menu-burger-content">
-        <a class="nav-item" href="#about">ABOUT</a>
-        <a class="nav-item" href="#skills">SKILLS</a>
-        <a class="nav-item" href="#social">SOCIAL</a>
-        <a class="nav-item" href="#contact">CONTACT US</a>
-        <a class="nav-item" href="#">BLOG</a>
+        <a class="nav-item" v-for="item in items" :key="item.navItem" :href=" '#' + item.navItem">{{ item.navItem }}</a>
     </div>
 </template>
 
 <script>
 export default {
-    name: "menu-burger-content"
+    name: "menu-burger-content",
+    el: '#nav',
+    data() {
+        return {
+            items:[
+                { navItem: 'ABOUT' },
+                { navItem: 'SKILLS' },
+                { navItem: 'SOCIAL' },
+                { navItem: 'CONTACT US' },
+                { navItem: 'BLOG' }
+            ]
+        }
+
+    }
+
 }
 </script>
 

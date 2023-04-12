@@ -1,54 +1,22 @@
 <template>
-    <section id="skills" class="skills-block default-block container">
+    <section id="SKILLS" class="skills-block default-block container">
         <h2 class="block-title">Skills</h2>
         <div class="skill-cards">
-            <div class="skill-card">
-                <div class="top-item-skill-card">
-                    <div class="card-title">Html</div>
-                    <button class="skill-card-button">+</button>
-                </div>
-                <div class="card-desc">
-                    <p>Do you sometimes have the feeling that you’re running into the same obstacles over and over again? Many of my conflicts have the same feel to them, like “Hey, I think I’ve been here before,” but I can’t figure out how I wound up in the same place.</p>
-                    <p>The situation is different, but the conflict feels the same. I first read this poem in “The Tibetan Book of Living and Dying” by Sogyal Rinpoche. When I “Googled” it, I found fourteen pages of links. It’s clearly a favorite with many people; I know it speaks volumes to me. “Autobiography in Five Chapters”</p>
-                </div>
-            </div>
-            <div class="skill-card">
-                <div class="top-item-skill-card">
-                    <div class="card-title">CSS</div>
-                    <button class="skill-card-button">+</button>
-                </div>
-                <div class="card-desc">
-                    <p>Do you sometimes have the feeling that you’re running into the same obstacles over and over again? Many of my conflicts have the same feel to them, like “Hey, I think I’ve been here before,” but I can’t figure out how I wound up in the same place.</p>
-                    <p>The situation is different, but the conflict feels the same. I first read this poem in “The Tibetan Book of Living and Dying” by Sogyal Rinpoche. When I “Googled” it, I found fourteen pages of links. It’s clearly a favorite with many people; I know it speaks volumes to me. “Autobiography in Five Chapters”</p>
-                </div>
-            </div>
-            <div class="skill-card">
-                <div class="top-item-skill-card">
-                    <div class="card-title">JavaScript</div>
-                    <button class="skill-card-button">+</button>
-                </div>
-                <div class="card-desc">
-                    <p>Do you sometimes have the feeling that you’re running into the same obstacles over and over again? Many of my conflicts have the same feel to them, like “Hey, I think I’ve been here before,” but I can’t figure out how I wound up in the same place.</p>
-                    <p>The situation is different, but the conflict feels the same. I first read this poem in “The Tibetan Book of Living and Dying” by Sogyal Rinpoche. When I “Googled” it, I found fourteen pages of links. It’s clearly a favorite with many people; I know it speaks volumes to me. “Autobiography in Five Chapters”</p>
-                </div>
-            </div>
-            <div class="skill-card">
-                <div class="top-item-skill-card">
-                    <div class="card-title">Vue</div>
-                    <button class="skill-card-button">+</button>
-                </div>
-                <div class="card-desc">
-                    <p>Do you sometimes have the feeling that you’re running into the same obstacles over and over again? Many of my conflicts have the same feel to them, like “Hey, I think I’ve been here before,” but I can’t figure out how I wound up in the same place.</p>
-                    <p>The situation is different, but the conflict feels the same. I first read this poem in “The Tibetan Book of Living and Dying” by Sogyal Rinpoche. When I “Googled” it, I found fourteen pages of links. It’s clearly a favorite with many people; I know it speaks volumes to me. “Autobiography in Five Chapters”</p>
-                </div>
-            </div>
+            <SkillCard card-title="Html"></SkillCard>
+            <SkillCard card-title="CSS"></SkillCard>
+            <SkillCard card-title="Java Script"></SkillCard>
+            <SkillCard card-title="Vue"></SkillCard>
         </div>
     </section>
 </template>
 
 <script>
+import SkillCard from '../components/skill-card.vue';
 export default {
-    name: "skills-block"
+    name: "skills-block",
+    components: {
+        SkillCard,
+    }
 }
 
 </script>
@@ -63,12 +31,6 @@ export default {
     margin-bottom: 50px;
 }
 
-.block-title {
-    font-size: 36px;
-    color: #363940;
-    font-family: "rm";
-    margin: 100px 0 40px;
-}
 .top-item-skill-card {
     display: flex;
     align-items: center;
@@ -89,7 +51,9 @@ export default {
     border-radius: 4px;
     margin-bottom: 20px;
     cursor: pointer;
-
+}
+.active-card {
+    border: solid 1px #6E38F7;
 }
 .card-desc {
     display: none /*block*/;

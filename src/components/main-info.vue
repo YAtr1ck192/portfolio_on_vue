@@ -1,11 +1,11 @@
 <template>
-    <div id="about" class="main-info container">
+    <div id="ABOUT" class="main-info container">
         <div class="main-info-left-part">
             <h1 class="person-name">I am Tolya</h1>
             <div class="person-speciality small-p">
                 Frontend-developer
             </div>
-            <a class="default-purple-a main-info-a" href="#skills">SCROLL TO MORE</a>
+            <a class="default-purple-a main-info-a" href="#SKILLS">SCROLL TO MORE</a>
         </div>
         <img class="main-image" src="../assets/images/person-img.jpg" alt="person-img">
     </div>

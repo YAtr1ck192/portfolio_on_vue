@@ -1,22 +1,34 @@
 <template>
     <header>
         <div class="container">
-            <a href="#"><img class="header-logo" src="../assets/images/header-logo.png" alt="header-logo"></a>
-            <nav>
-                <a class="nav-item" href="#about">ABOUT</a>
-                <a class="nav-item" href="#skills">SKILLS</a>
-                <a class="nav-item" href="#social">SOCIAL</a>
-                <a class="nav-item" href="#contact">CONTACT US</a>
-                <a class="nav-item" href="#">BLOG</a>
-                <img src="../assets/images/menu-burger.png" alt="menu-burger" class="menu-burger">
-            </nav>
+            <div class="container">
+                <a href="#"><img class="header-logo" src="../assets/images/header-logo.png" alt="header-logo"></a>
+                <nav>
+                    <a class="nav-item" v-for="item in items" :key="item.navItem" :href=" '#' + item.navItem">{{ item.navItem }}</a>
+                    <img src="../assets/images/menu-burger.png" alt="menu-burger" class="menu-burger">
+                </nav>
+            </div>
         </div>
     </header>
 </template>
 
 <script>
+
 export default {
-    name: "header-block"
+    name: "header-block",
+    el: '#nav',
+    data() {
+        return {
+            items:[
+                { navItem: 'ABOUT' },
+                { navItem: 'SKILLS' },
+                { navItem: 'SOCIAL' },
+                { navItem: 'CONTACT US' },
+                { navItem: 'BLOG' }
+            ]
+        }
+
+    }
 }
 </script>
 
@@ -63,6 +75,7 @@ export default {
             justify-content: space-between;
             position: sticky;
             top: 0;
+            z-index: 100;
         }
         nav a {
             display: none;
@@ -93,6 +106,7 @@ export default {
         header {
             position: sticky;
             top: 0;
+            z-index: 100;
         }
     }
     @media screen and (min-width: 320px) and (max-width: 619px){
@@ -106,6 +120,7 @@ export default {
             justify-content: space-between;
             position: sticky;
             top: 0;
+            z-index: 100;
         }
         nav a {
             display: none;
