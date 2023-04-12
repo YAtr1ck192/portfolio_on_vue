@@ -2,10 +2,7 @@
     <section id="SKILLS" class="skills-block default-block container">
         <h2 class="block-title">Skills</h2>
         <div class="skill-cards">
-            <SkillCard card-title="Html"></SkillCard>
-            <SkillCard card-title="CSS"></SkillCard>
-            <SkillCard card-title="Java Script"></SkillCard>
-            <SkillCard card-title="Vue"></SkillCard>
+            <SkillCard :card-title="skill.cardTitle" v-for="skill in items" :key="skill" />
         </div>
     </section>
 </template>
@@ -16,6 +13,16 @@ export default {
     name: "skills-block",
     components: {
         SkillCard,
+    },
+    data () {
+        return {
+            items: [
+                { skill: SkillCard, cardTitle: 'Html'},
+                { skill: SkillCard, cardTitle: 'CSS'},
+                { skill: SkillCard, cardTitle: 'Java Script'},
+                { skill: SkillCard, cardTitle: 'Vue'},
+            ]
+        }
     }
 }
 

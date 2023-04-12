@@ -2,10 +2,10 @@
     <header>
         <div class="container">
             <div class="container">
-                <a href="#"><img class="header-logo" src="../assets/images/header-logo.png" alt="header-logo"></a>
+                <a href="#"><img class="header-logo" src="/images/header-logo.png" alt="header-logo"></a>
                 <nav>
                     <a class="nav-item" v-for="item in items" :key="item.navItem" :href="'#' + item.navItem">{{ item.navItem }}</a>
-                    <img src="../assets/images/menu-burger.png" alt="menu-burger" class="menu-burger">
+                    <img @click="openBurgerMenu" src="/images/menu-burger.png" alt="menu-burger" class="menu-burger">
                 </nav>
             </div>
         </div>
@@ -26,6 +26,29 @@ export default {
                 { navItem: 'CONTACT US' },
                 { navItem: 'BLOG' }
             ]
+        }
+    },
+    methods: {
+        openBurgerMenu() {
+            const MENU_BURGER = document.querySelector('.menu-burger');
+            let menuBurgerContent = document.querySelector('.menu-burger-content');
+            if (menuBurgerContent.style.display !== 'flex' && MENU_BURGER.src !== `../assets/images/x-menu-burger.png`){
+                MENU_BURGER.src = '../assets/images/x-menu-burger.png';
+                menuBurgerContent.style.display = 'flex';
+                document.querySelector("body").style.overflow = 'hidden';
+
+                document.querySelectorAll('.menu-burger-content > a').forEach((el) => {
+                    el.addEventListener('click', () => {
+                        MENU_BURGER.src = `../assets/images/menu-burger.png`;
+                        menuBurgerContent.style.display = 'none';
+                        document.querySelector("body").style.overflow = 'visible';
+                    })
+                })
+            } else {
+                MENU_BURGER.src = `../assets/images/menu-burger.png`;
+                menuBurgerContent.style.display = 'none';
+                document.querySelector("body").style.overflow = 'visible';
+            }
         }
     }
 }

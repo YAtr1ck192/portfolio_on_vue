@@ -80,6 +80,7 @@ export default {
       border-radius: 4px;
       font-size: 12px;
       font-family: "rm";
+      cursor: pointer;
   }
   .default-purple-button:hover {
       border: solid 1px #6E38F7;

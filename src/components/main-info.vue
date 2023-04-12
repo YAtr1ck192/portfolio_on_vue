@@ -7,7 +7,7 @@
             </div>
             <a class="default-purple-a main-info-a" href="#SKILLS">SCROLL TO MORE</a>
         </div>
-        <img class="main-image" src="../assets/images/person-img.jpg" alt="person-img">
+        <img class="main-image" src="/images/person-img.jpg" alt="person-img">
     </div>
 </template>
 

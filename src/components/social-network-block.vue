@@ -5,8 +5,8 @@
             There are many reasons to get down and start to get depressed about your situation.
         </div>
         <div class="slider-track">
-            <img src="../assets/images/arrow-left.png" alt="slider-arrow" class="slider-arrow slider-arrow-left">
-            <img src="../assets/images/arrow-right.png" alt="slider-arrow" class="slider-arrow slider-arrow-right">
+            <img @click="prevSlide" src="/images/arrow-left.png" alt="slider-arrow" class="slider-arrow slider-arrow-left">
+            <img @click="nextSlide" src="/images/arrow-right.png" alt="slider-arrow" class="slider-arrow slider-arrow-right">
             <div class="wrapper">
                 <div class="slides">
                     <div class="slide" v-for="item in items" :key="item.src">
@@ -25,17 +25,32 @@ export default {
     data() {
         return {
             items:[
-                { src: '../assets/images/telegram-icon.png' },
-                { src: '../assets/images/whatsapp-icon.png' },
-                { src: '../assets/images/instagram-icon.png' },
-                { src: '../assets/images/facebook-icon.png' },
-                { src: '../assets/images/youtube-icon.png' },
-                { src: '../assets/images/twitter-icon.png' },
+                { src: '/images/telegram-icon.png' },
+                { src: '/images/whatsapp-icon.png' },
+                { src: '/images/instagram-icon.png' },
+                { src: '/images/facebook-icon.png' },
+                { src: '/images/youtube-icon.png' },
+                { src: '/images/twitter-icon.png' },
             ]
         }
     },
     methods: {
-
+        nextSlide(){
+            const SLIDES_BLOCK =  document.querySelector('.slides');
+            let slides = Array.from(document.querySelectorAll('.slide'));
+            let slide = slides[slides.length-1];
+            let newSlide = slide.cloneNode(true);
+            slide.remove();
+            SLIDES_BLOCK.insertAdjacentElement('afterbegin', newSlide);
+        },
+        prevSlide(){
+            const SLIDES_BLOCK =  document.querySelector('.slides');
+            let slides = Array.from(document.querySelectorAll('.slide'));
+            let slide = slides[0];
+            let newSlide = slide.cloneNode(true);
+            slide.remove();
+            SLIDES_BLOCK.insertAdjacentElement('beforeend', newSlide);
+        }
     },
 }
 </script>
