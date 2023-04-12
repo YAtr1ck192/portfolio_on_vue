@@ -10,7 +10,7 @@
             <div class="wrapper">
                 <div class="slides">
                     <div class="slide" v-for="item in items" :key="item.src">
-                        <a href="#"><img :src="'../assets/images/' + item.src" alt="social-network-logo"></a>
+                        <a href="#"><img :src="item.src" alt="social-network-logo"></a>
                     </div>
                 </div>
             </div>
@@ -25,12 +25,12 @@ export default {
     data() {
         return {
             items:[
-                { src: 'telegram-icon.png' },
-                { src: 'whatsapp-icon.png' },
-                { src: 'instagram-icon.png' },
-                { src: 'facebook-icon.png' },
-                { src: 'youtube-icon.png' },
-                { src: 'twitter-icon.png' },
+                { src: '../assets/images/telegram-icon.png' },
+                { src: '../assets/images/whatsapp-icon.png' },
+                { src: '../assets/images/instagram-icon.png' },
+                { src: '../assets/images/facebook-icon.png' },
+                { src: '../assets/images/youtube-icon.png' },
+                { src: '../assets/images/twitter-icon.png' },
             ]
         }
     },
