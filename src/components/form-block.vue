@@ -1,5 +1,5 @@
 <template>
-    <div id="CONTACT US" class="default-block form-block container">
+    <div id="contact-us" class="default-block form-block container">
         <h2 class="block-title">Contact us</h2>
         <div class="contact-us-desc small-p">
             Life is 10% what happens to you and 90% how you react to it. It does not matter how slowly you go as long as you do not stop. Confucius.

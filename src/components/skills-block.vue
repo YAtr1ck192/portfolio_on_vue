@@ -1,5 +1,5 @@
 <template>
-    <section id="SKILLS" class="skills-block default-block container">
+    <section id="skills" class="skills-block default-block container">
         <h2 class="block-title">Skills</h2>
         <div class="skill-cards">
             <SkillCard :card-title="skill.cardTitle" v-for="skill in items" :key="skill" />

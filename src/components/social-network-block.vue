@@ -1,5 +1,5 @@
 <template>
-    <div id="SOCIAL" class="social-networks-block container">
+    <div id="social" class="social-networks-block container">
         <h2 class="block-title">My social networks</h2>
         <div class="social-networks-subtitle small-p">
             There are many reasons to get down and start to get depressed about your situation.

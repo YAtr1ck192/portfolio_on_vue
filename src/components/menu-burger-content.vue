@@ -1,6 +1,6 @@
 <template>
     <div class="menu-burger-content">
-        <a class="nav-item" v-for="item in items" :key="item.navItem" :href=" '#' + item.navItem">{{ item.navItem }}</a>
+        <a class="nav-item" v-for="item in items" :key="item.navItem" :href=" '#' + item.navLink">{{ item.navItem }}</a>
     </div>
 </template>
 
@@ -11,11 +11,11 @@ export default {
     data() {
         return {
             items:[
-                { navItem: 'ABOUT' },
-                { navItem: 'SKILLS' },
-                { navItem: 'SOCIAL' },
-                { navItem: 'CONTACT US' },
-                { navItem: 'BLOG' }
+                { navItem: 'ABOUT', navLink: 'about'},
+                { navItem: 'SKILLS', navLink: 'skills' },
+                { navItem: 'SOCIAL', navLink: 'social' },
+                { navItem: 'CONTACT US', navLink: 'contact-us' },
+                { navItem: 'BLOG', navLink: '#blog' },
             ]
         }
 

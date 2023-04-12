@@ -4,7 +4,7 @@
             <div class="container">
                 <a href="#"><img class="header-logo" src="/images/header-logo.png" alt="header-logo"></a>
                 <nav>
-                    <a class="nav-item" v-for="item in items" :key="item.navItem" :href="'#' + item.navItem">{{ item.navItem }}</a>
+                    <a class="nav-item" v-for="item in items" :key="item.navItem" :href="'#' + item.navLink">{{ item.navItem }}</a>
                     <img @click="openBurgerMenu" src="/images/menu-burger.png" alt="menu-burger" class="menu-burger">
                 </nav>
             </div>
@@ -20,11 +20,11 @@ export default {
     data() {
         return {
             items:[
-                { navItem: 'ABOUT' },
-                { navItem: 'SKILLS' },
-                { navItem: 'SOCIAL' },
-                { navItem: 'CONTACT US' },
-                { navItem: 'BLOG' }
+                { navItem: 'ABOUT', navLink: 'about'},
+                { navItem: 'SKILLS', navLink: 'skills' },
+                { navItem: 'SOCIAL', navLink: 'social' },
+                { navItem: 'CONTACT US', navLink: 'contact-us' },
+                { navItem: 'BLOG', navLink: '#blog' },
             ]
         }
     },
@@ -32,20 +32,20 @@ export default {
         openBurgerMenu() {
             const MENU_BURGER = document.querySelector('.menu-burger');
             let menuBurgerContent = document.querySelector('.menu-burger-content');
-            if (menuBurgerContent.style.display !== 'flex' && MENU_BURGER.src !== `../assets/images/x-menu-burger.png`){
-                MENU_BURGER.src = '../assets/images/x-menu-burger.png';
+            if (menuBurgerContent.style.display !== 'flex' && MENU_BURGER.src !== `/images/x-menu-burger.png`){
+                MENU_BURGER.src = '/images/x-menu-burger.png';
                 menuBurgerContent.style.display = 'flex';
                 document.querySelector("body").style.overflow = 'hidden';
 
                 document.querySelectorAll('.menu-burger-content > a').forEach((el) => {
                     el.addEventListener('click', () => {
-                        MENU_BURGER.src = `../assets/images/menu-burger.png`;
+                        MENU_BURGER.src = `/images/menu-burger.png`;
                         menuBurgerContent.style.display = 'none';
                         document.querySelector("body").style.overflow = 'visible';
                     })
                 })
             } else {
-                MENU_BURGER.src = `../assets/images/menu-burger.png`;
+                MENU_BURGER.src = `/images/menu-burger.png`;
                 menuBurgerContent.style.display = 'none';
                 document.querySelector("body").style.overflow = 'visible';
             }
