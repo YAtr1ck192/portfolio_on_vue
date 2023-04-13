@@ -2,9 +2,19 @@
     <header>
         <div class="container">
             <div class="container">
-                <a href="#"><img class="header-logo" src="/images/header-logo.png" alt="header-logo"></a>
+                <a href="#"><img
+                    class="header-logo"
+                    src="/images/header-logo.png"
+                    alt="header-logo">
+                </a>
                 <nav>
-                    <a class="nav-item" v-for="item in items" :key="item.navItem" :href="'#' + item.navLink">{{ item.navItem }}</a>
+                    <a
+                        class="nav-item"
+                        v-for="item in items"
+                        :key="item.navItem"
+                        :href="item.navLink">
+                        {{ item.navItem }}
+                    </a>
                     <img @click="openBurgerMenu" src="/images/menu-burger.png" alt="menu-burger" class="menu-burger">
                 </nav>
             </div>
@@ -16,14 +26,13 @@
 
 export default {
     name: "header-block",
-    el: '#nav',
     data() {
         return {
             items:[
-                { navItem: 'ABOUT', navLink: 'about'},
-                { navItem: 'SKILLS', navLink: 'skills' },
-                { navItem: 'SOCIAL', navLink: 'social' },
-                { navItem: 'CONTACT US', navLink: 'contact-us' },
+                { navItem: 'ABOUT', navLink: '#about'},
+                { navItem: 'SKILLS', navLink: '#skills' },
+                { navItem: 'SOCIAL', navLink: '#social' },
+                { navItem: 'CONTACT US', navLink: '#contact-us' },
                 { navItem: 'BLOG', navLink: '#blog' },
             ]
         }

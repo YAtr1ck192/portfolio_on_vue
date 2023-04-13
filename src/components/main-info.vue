@@ -5,7 +5,7 @@
             <div class="person-speciality small-p">
                 Frontend-developer
             </div>
-            <a class="default-purple-a main-info-a" href="#SKILLS">SCROLL TO MORE</a>
+            <a class="default-purple-a main-info-a" href="skills">SCROLL TO MORE</a>
         </div>
         <img class="main-image" src="/images/person-img.jpg" alt="person-img">
     </div>

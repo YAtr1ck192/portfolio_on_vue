@@ -9,8 +9,13 @@
             <img @click="nextSlide" src="/images/arrow-right.png" alt="slider-arrow" class="slider-arrow slider-arrow-right">
             <div class="wrapper">
                 <div class="slides">
-                    <div class="slide" v-for="item in items" :key="item.src">
-                        <a href="#"><img :src="item.src" alt="social-network-logo"></a>
+                    <div class="slide"
+                         v-for="item in items"
+                         :key="item.src"
+                    >
+                        <a href="#">
+                            <img :src="item.src" alt="social-network-logo">
+                        </a>
                     </div>
                 </div>
             </div>
@@ -21,7 +26,6 @@
 <script>
 export default {
     name: "social-network-block",
-    el:'#socialNetworkBlock',
     data() {
         return {
             items:[
@@ -114,6 +118,7 @@ export default {
     justify-content: center;
     background: rgba(238, 238, 238, 0.32);
     border-radius: 4px;
+    animation: ani .6s forwards;
 }
 .slide img {
     max-width: 120px;
@@ -164,6 +169,14 @@ export default {
       .slider-track {
           overflow: hidden;
           max-width: 140px;
+      }
+  }
+  @keyframes ani {
+      0% {
+          opacity: .8;
+      }
+      100% {
+          opacity: 1;
       }
   }
 </style>

@@ -1,7 +1,7 @@
 <template>
     <div class="skill-card">
         <div @click="activeCard" class="top-item-skill-card">
-            <div class="card-title">{{cardTitle}}</div>
+            <div class="card-title">{{ cardTitle }}</div>
             <button class="skill-card-button">+</button>
         </div>
         <div class="card-desc ">
@@ -46,6 +46,8 @@ export default {
         border: solid 1px #E1E5EE;
         border-radius: 4px;
         margin-bottom: 20px;
+        cursor: auto;
+        animation: card .6s forwards;
     }
     .active-card {
         border: solid 1px #6E38F7;
@@ -56,7 +58,8 @@ export default {
         display: none /*block*/;
         transition: .9s ease-in-out;
         padding: 0 25px 0 25px;
-
+        cursor: auto;
+        animation: card-desc .6s forwards;
     }
     .card-desc p {
         max-width: 750px;
@@ -76,6 +79,7 @@ export default {
         align-items: center;
         justify-content: space-between;
         padding: 19px 25px 20px 25px;
+        cursor: pointer;
     }
     .card-title {
         font-size: 18px;
@@ -107,6 +111,16 @@ export default {
         }
         .skill-card {
             width: 288px;
+        }
+    }
+    @keyframes card-desc {
+        0% {
+            transform: translateY(-5px);
+            opacity: .9;
+        }
+        100% {
+            transform: translateY(0);
+            opacity: 1;
         }
     }
 </style>
