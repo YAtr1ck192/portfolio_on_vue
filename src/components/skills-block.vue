@@ -3,9 +3,11 @@
         <h2 class="block-title">Skills</h2>
         <div class="skill-cards">
             <SkillCard
-                :card-title="skill.cardTitle"
-                v-for="skill in items"
-                :key="skill"
+                :card-title="item.cardTitle"
+                :card-first-text="item.cardFirstText"
+                :card-second-text="item.cardSecondText"
+                v-for="item in items"
+                :key="item"
             />
         </div>
     </section>
@@ -21,10 +23,42 @@ export default {
     data () {
         return {
             items: [
-                { skill: SkillCard, cardTitle: 'Html'},
-                { skill: SkillCard, cardTitle: 'CSS'},
-                { skill: SkillCard, cardTitle: 'Java Script'},
-                { skill: SkillCard, cardTitle: 'Vue'},
+                {
+                    cardFirstText: 'Do you sometimes have the feeling that you’re running into the same obstacles over and over again? ' +
+                        'Many of my conflicts have the same feel to them, like “Hey, I think I’ve been here before,” but I can’t figure out how ' +
+                        'I wound up in the same place. ',
+                    cardSecondText: 'The situation is different, but the conflict feels the same. I first read this poem in “The Tibetan Book of Living' +
+                        ' and Dying” by Sogyal Rinpoche. When I “Googled” it, I found fourteen pages of links. It’s clearly a favorite with many people;' +
+                        ' I know it speaks volumes to me. “Autobiography in Five Chapters”',
+                    cardTitle: 'Html'
+                },
+                {
+                    cardFirstText: 'Do you sometimes have the feeling that you’re running into the same obstacles over and over again? ' +
+                        'Many of my conflicts have the same feel to them, like “Hey, I think I’ve been here before,” but I can’t figure out how ' +
+                        'I wound up in the same place. ',
+                    cardSecondText: 'The situation is different, but the conflict feels the same. I first read this poem in “The Tibetan Book of Living' +
+                        ' and Dying” by Sogyal Rinpoche. When I “Googled” it, I found fourteen pages of links. It’s clearly a favorite with many people;' +
+                        ' I know it speaks volumes to me. “Autobiography in Five Chapters”',
+                    cardTitle: 'CSS'
+                },
+                {
+                    cardFirstText: 'Do you sometimes have the feeling that you’re running into the same obstacles over and over again? ' +
+                        'Many of my conflicts have the same feel to them, like “Hey, I think I’ve been here before,” but I can’t figure out how ' +
+                        'I wound up in the same place. ',
+                    cardSecondText: 'The situation is different, but the conflict feels the same. I first read this poem in “The Tibetan Book of Living' +
+                        ' and Dying” by Sogyal Rinpoche. When I “Googled” it, I found fourteen pages of links. It’s clearly a favorite with many people;' +
+                        ' I know it speaks volumes to me. “Autobiography in Five Chapters”',
+                    cardTitle: 'Java Script'
+                },
+                {
+                    cardFirstText: 'Do you sometimes have the feeling that you’re running into the same obstacles over and over again? ' +
+                        'Many of my conflicts have the same feel to them, like “Hey, I think I’ve been here before,” but I can’t figure out how ' +
+                        'I wound up in the same place. ',
+                    cardSecondText: 'The situation is different, but the conflict feels the same. I first read this poem in “The Tibetan Book of Living' +
+                        ' and Dying” by Sogyal Rinpoche. When I “Googled” it, I found fourteen pages of links. It’s clearly a favorite with many people;' +
+                        ' I know it speaks volumes to me. “Autobiography in Five Chapters”',
+                    cardTitle: 'Vue'
+                },
             ]
         }
     }

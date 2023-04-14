@@ -5,11 +5,11 @@
             <button class="skill-card-button">+</button>
         </div>
         <div class="card-desc">
-            <p>Do you sometimes have the feeling that you’re running into the same obstacles over and over again?
-                Many of my conflicts have the same feel to them, like “Hey,
-                I think I’ve been here before,” but I can’t figure out how I wound up in the same place.
+            <p>
+                {{cardFirstText}}
             </p>
-            <p>The situation is different, but the conflict feels the same. I first read this poem in “The Tibetan Book of Living and Dying” by
+            <p>
+                The situation is different, but the conflict feels the same. I first read this poem in “The Tibetan Book of Living and Dying” by
                 Sogyal Rinpoche. When I “Googled” it, I found fourteen pages of links. It’s clearly a favorite with many people;
                 I know it speaks volumes to me. “Autobiography in Five Chapters”
             </p>
@@ -20,7 +20,11 @@
 <script>
 export default {
     name: "skill-card",
-    props: ['cardTitle'],
+    props: [
+        'cardTitle',
+        'cardFirstText',
+        'cardSecondText'
+    ],
     methods: {
         activeCard(event) {
             if (event.target.lastChild.textContent === '+'){

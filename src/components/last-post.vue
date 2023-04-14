@@ -1,6 +1,6 @@
 <template>
     <article class="article-card">
-        <img class="article-img" :src="'' + postImg" alt="article-img">
+        <img class="article-img" :src="postImg" alt="article-img">
         <div class="article-card-desc">
             <div class="article-title-and-desc">
                 <div class="card-title blog-title">{{ postTitle }}</div>
