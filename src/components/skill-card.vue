@@ -4,7 +4,7 @@
             <div class="card-title">{{ cardTitle }}</div>
             <button class="skill-card-button">+</button>
         </div>
-        <div class="card-desc ">
+        <div class="card-desc">
             <p>Do you sometimes have the feeling that you’re running into the same obstacles over and over again?
                 Many of my conflicts have the same feel to them, like “Hey,
                 I think I’ve been here before,” but I can’t figure out how I wound up in the same place.
@@ -48,11 +48,6 @@ export default {
         margin-bottom: 20px;
         cursor: auto;
         animation: card .6s forwards;
-    }
-    .active-card {
-        border: solid 1px #6E38F7;
-        border-radius: 4px;
-        margin-bottom: 20px;
     }
     .card-desc {
         display: none /*block*/;

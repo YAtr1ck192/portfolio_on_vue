@@ -21,13 +21,7 @@
     max-width: 940px;
     margin: 0 auto;
 }
-.default-block-main {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: 100px 0;
-}
+
 .block-title {
     font-size: 36px;
     color: #363940;
@@ -38,6 +32,18 @@
     font-family: "rr";
     font-size: 16px;
     color: #95A1BB;
+}
+.card-desc p{
+    font-size: 16px;
+    font-family: "rr";
+    color: #363940;
+    margin-bottom: 20px;
+}
+.default-purple-a {
+    text-decoration: none;
+    color: #6E38F7;
+    font-size: 12px;
+    font-family: "rm";
 }
 @media screen and (min-width: 941px) and (max-width: 1000px) {
     .container {

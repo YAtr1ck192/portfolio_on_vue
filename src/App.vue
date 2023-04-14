@@ -1,13 +1,14 @@
 <template>
-  <div id="app">
-    <HeaderBlock />
-    <MenuBurgerContent />
-    <MainInfo />
-    <SkillsBlock />
-    <SocialNetworkBlock />
-    <FormBlock />
-    <FooterBlock />
-  </div>
+    <div id="app">
+        <HeaderBlock />
+        <MenuBurgerContent />
+        <MainInfo />
+        <SkillsBlock />
+        <SocialNetworkBlock />
+        <LastPostsBlock />
+        <FormBlock />
+        <FooterBlock />
+    </div>
 </template>
 
 <script>
@@ -18,19 +19,20 @@ import SkillsBlock from './components/skills-block.vue';
 import SocialNetworkBlock from './components/social-network-block.vue';
 import FormBlock from './components/form-block.vue';
 import FooterBlock from './components/footer-block.vue';
-
+import LastPostsBlock from './components/last-posts-block.vue'
 
 export default {
-  name: 'App',
-  components: {
-      HeaderBlock,
-      MenuBurgerContent,
-      MainInfo,
-      SkillsBlock,
-      SocialNetworkBlock,
-      FormBlock,
-      FooterBlock,
-  },
+    name: 'App',
+    components: {
+        HeaderBlock,
+        MenuBurgerContent,
+        MainInfo,
+        SkillsBlock,
+        SocialNetworkBlock,
+        FormBlock,
+        FooterBlock,
+        LastPostsBlock,
+    },
     methods: {
 
     }
@@ -38,5 +40,5 @@ export default {
 </script>
 
 <style>
-  @import "@/css/global_styles.css";
+@import "@/css/global_styles.css";
 </style>

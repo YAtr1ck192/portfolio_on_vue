@@ -21,14 +21,9 @@ export default {
             const FORM_NAME = document.querySelector('.form-name');
             const FORM_EMAIL = document.querySelector('.form-email');
 
-            FORM_NAME.setAttribute('pattern', '^[a-zA-Z]+$');
-            FORM_EMAIL.setAttribute('type', 'email');
             if (!FORM_EMAIL.value && !FORM_NAME.value) {
                 FORM_EMAIL.classList.add('error');
                 FORM_NAME.classList.add('error');
-            } else {
-                FORM_EMAIL.classList.remove('error');
-                FORM_NAME.classList.remove('error');
             }
         }
     }
@@ -36,15 +31,12 @@ export default {
 </script>
 
 <style scoped>
-    .error {
-        border: solid 1px #DF1F1F;
-    }
+
     .form-block {
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        margin-top: 50px;
     }
     .form-block .block-title {
         margin-bottom: 20px;
