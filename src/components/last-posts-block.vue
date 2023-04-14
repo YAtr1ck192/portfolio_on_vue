@@ -4,11 +4,8 @@
         <a href="#" class="default-purple-a all-posts-a first-post-a">ALL POSTS</a>
         <lastPost
             v-for="item in items"
-            :key="item"
-            :post-img="item.postImg"
-            :post-title="item.postTitle"
-            :post-desc="item.postDesc"
-            :post-date="item.postDate"
+            :key="item.id"
+            :post="item"
         />
         <a href="#" class="default-purple-a all-posts-a second-post-a">ALL POSTS</a>
     </section>

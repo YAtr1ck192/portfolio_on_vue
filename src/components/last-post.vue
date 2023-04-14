@@ -1,16 +1,16 @@
 <template>
     <article class="article-card">
-        <img class="article-img" :src="postImg" alt="article-img">
+        <img class="article-img" :src="post.postImg" alt="article-img">
         <div class="article-card-desc">
             <div class="article-title-and-desc">
-                <div class="card-title blog-title">{{ postTitle }}</div>
+                <div class="card-title blog-title">{{ post.postTitle }}</div>
                 <div class="card-desc article-desc">
-                    <p>{{postDesc}}</p>
+                    <p>{{ post.postDesc }}</p>
                 </div>
             </div>
             <div class="bottom-card-item">
                 <div class="small-p date-add">
-                    {{ postDate }}
+                    {{ post.postDate }}
                 </div>
                 <a class="default-purple-a" href="#">READ MORE</a>
             </div>
@@ -22,10 +22,7 @@
 export default {
     name: "last-post",
     props:[
-        'postImg',
-        'postTitle',
-        'postDesc',
-        'postDate'
+        'post'
     ]
 }
 </script>
