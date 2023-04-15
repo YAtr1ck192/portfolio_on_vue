@@ -3,9 +3,7 @@
         <h2 class="block-title">Skills</h2>
         <div class="skill-cards">
             <SkillCard
-                :card-title="item.cardTitle"
-                :card-first-text="item.cardFirstText"
-                :card-second-text="item.cardSecondText"
+                :card="item"
                 v-for="item in items"
                 :key="item"
             />

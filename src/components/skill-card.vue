@@ -1,17 +1,15 @@
 <template>
     <div class="skill-card">
         <div @click="activeCard" class="top-item-skill-card">
-            <div class="card-title">{{ cardTitle }}</div>
+            <div class="card-title">{{ card.cardTitle }}</div>
             <button class="skill-card-button">+</button>
         </div>
         <div class="card-desc">
             <p>
-                {{cardFirstText}}
+                {{ card.cardFirstText }}
             </p>
             <p>
-                The situation is different, but the conflict feels the same. I first read this poem in “The Tibetan Book of Living and Dying” by
-                Sogyal Rinpoche. When I “Googled” it, I found fourteen pages of links. It’s clearly a favorite with many people;
-                I know it speaks volumes to me. “Autobiography in Five Chapters”
+              {{ card.cardSecondText }}
             </p>
         </div>
     </div>
@@ -21,9 +19,7 @@
 export default {
     name: "skill-card",
     props: [
-        'cardTitle',
-        'cardFirstText',
-        'cardSecondText'
+        'card'
     ],
     methods: {
         activeCard(event) {
@@ -46,6 +42,9 @@ export default {
 </script>
 
 <style scoped>
+    .active-card {
+      border: solid 1px #6E38F7;
+    }
     .skill-card {
         border: solid 1px #E1E5EE;
         border-radius: 4px;
