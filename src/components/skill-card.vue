@@ -42,9 +42,7 @@ export default {
 </script>
 
 <style scoped>
-    .active-card {
-      border: solid 1px #6E38F7;
-    }
+
     .skill-card {
         border: solid 1px #E1E5EE;
         border-radius: 4px;
@@ -83,6 +81,9 @@ export default {
         font-size: 18px;
         color: #363940;
         font-family: "rm";
+    }
+    .active-card {
+      border: solid 1px #6E38F7;
     }
     @media screen and (min-width: 620px) and (max-width: 819px) {
         .card-desc {
