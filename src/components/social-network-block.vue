@@ -1,8 +1,8 @@
 <template>
     <div id="social" class="social-networks-block container">
-        <h2 class="block-title">My social networks</h2>
+        <h2 class="block-title">{{ blockTitle }}</h2>
         <div class="social-networks-subtitle small-p">
-            There are many reasons to get down and start to get depressed about your situation.
+            {{ blockSubtitle }}
         </div>
         <div class="slider-track">
             <img @click="prevSlide" src="/images/arrow-left.png" alt="slider-arrow" class="slider-arrow slider-arrow-left">
@@ -28,6 +28,8 @@ export default {
     name: "social-network-block",
     data() {
         return {
+            blockTitle:'My social networks',
+            blockSubtitle:'There are many reasons to get down and start to get depressed about your situation.',
             items:[
                 { src: '/images/telegram-icon.png' },
                 { src: '/images/whatsapp-icon.png' },

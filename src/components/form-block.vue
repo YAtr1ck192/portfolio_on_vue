@@ -1,21 +1,28 @@
 <template>
     <div id="contact-us" class="default-block form-block container">
-        <h2 class="block-title">Contact us</h2>
+        <h2 class="block-title">{{ blockTitle }}</h2>
         <div class="contact-us-desc small-p">
-            Life is 10% what happens to you and 90% how you react to it. It does not matter how slowly you go as long as you do not stop. Confucius.
+            {{ descContent }}
         </div>
         <div class="form-group">
             <input class="form-name" aria-label="name" type="text" name="name" placeholder="Your name">
             <input class="form-email" aria-label="email" type="text" name="email" placeholder="Email">
             <textarea name="desc" id="" cols="30" rows="10" placeholder="Description (optional)"></textarea>
         </div>
-        <button @click="sendButton" class="form-button default-purple-button">SEND</button>
+        <button @click="sendButton" class="form-button default-purple-button">{{ buttonContent }}</button>
     </div>
 </template>
 
 <script>
 export default {
     name: "form-block",
+    data () {
+        return {
+            blockTitle:'Contact us',
+            descContent: 'Life is 10% what happens to you and 90% how you react to it. It does not matter how slowly you go as long as you do not stop. Confucius.',
+            buttonContent:'SEND'
+        }
+    },
     methods: {
         sendButton() {
             const FORM_NAME = document.querySelector('.form-name');

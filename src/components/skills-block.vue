@@ -1,6 +1,6 @@
 <template>
     <section id="skills" class="skills-block default-block container">
-        <h2 class="block-title">Skills</h2>
+        <h2 class="block-title">{{ blockTitle }}</h2>
         <div class="skill-cards">
             <SkillCard
                 :card="item"
@@ -20,6 +20,7 @@ export default {
     },
     data () {
         return {
+            blockTitle:'Skills',
             items: [
                 {
                     cardFirstText: 'Do you sometimes have the feeling that you’re running into the same obstacles over and over again? ' +

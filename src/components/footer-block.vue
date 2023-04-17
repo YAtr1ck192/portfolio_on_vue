@@ -1,12 +1,17 @@
 <template>
     <footer class="small-p footer-txt">
-        Copyright © 2023. All rights reserved.
+        Copyright © {{ year }}. All rights reserved.
     </footer>
 </template>
 
 <script>
 export default {
-    name: "footer-block"
+    name: "footer-block",
+    data () {
+        return {
+            year: new Date().getFullYear(),
+        }
+    },
 }
 </script>
 

@@ -1,11 +1,11 @@
 <template>
     <div id="about" class="main-info container">
         <div class="main-info-left-part">
-            <h1 class="person-name">I am Tolya</h1>
+            <h1 class="person-name">{{ userName }}</h1>
             <div class="person-speciality small-p">
-                Frontend-developer
+                {{ specialty }}
             </div>
-            <a class="default-purple-a main-info-a" href="skills">SCROLL TO MORE</a>
+            <a class="default-purple-a main-info-a" href="#skills">{{ buttonContent }}</a>
         </div>
         <img class="main-image" src="/images/person-img.jpg" alt="person-img">
     </div>
@@ -13,7 +13,15 @@
 
 <script>
 export default {
-    name: "main-info"
+    name: "main-info",
+    data () {
+        return {
+            userName: 'I am Tolya',
+            specialty: 'Frontend-developer',
+            buttonContent: 'SCROLL TO MORE',
+
+        }
+    },
 }
 </script>
 
@@ -41,7 +49,6 @@ export default {
     font-family: "rr";
     margin-bottom: 213px;
 }
-
 .default-purple-a {
     text-decoration: none;
     color: #6E38F7;

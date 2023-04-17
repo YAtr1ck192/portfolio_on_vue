@@ -12,7 +12,7 @@
                 <div class="small-p date-add">
                     {{ post.postDate }}
                 </div>
-                <a class="default-purple-a" href="#">READ MORE</a>
+                <a class="default-purple-a" href="#">{{ linkContent }}</a>
             </div>
         </div>
     </article>
@@ -23,7 +23,12 @@ export default {
     name: "last-post",
     props:[
         'post'
-    ]
+    ],
+    data () {
+        return {
+            linkContent: 'READ MORE'
+        }
+    }
 }
 </script>
 

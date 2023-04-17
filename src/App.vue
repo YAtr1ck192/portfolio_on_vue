@@ -2,11 +2,11 @@
     <div id="app">
         <HeaderBlock />
         <MenuBurgerContent />
-        <MainInfo />
-        <SkillsBlock />
-        <SocialNetworkBlock />
-        <LastPostsBlock />
-        <FormBlock />
+        <MainInfo id="about"/>
+        <SkillsBlock id="#skills"/>
+        <SocialNetworkBlock id="social"/>
+        <LastPostsBlock id="blog"/>
+        <FormBlock id="contact-us"/>
         <FooterBlock />
     </div>
 </template>

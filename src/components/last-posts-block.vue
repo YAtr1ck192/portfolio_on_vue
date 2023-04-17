@@ -1,13 +1,13 @@
 =<template>
     <section id="blog" class="default-block container">
-        <h2 class="block-title-blog">Last posts</h2>
-        <a href="#" class="default-purple-a all-posts-a first-post-a">ALL POSTS</a>
+        <h2 class="block-title-blog">{{ blogTitle }}</h2>
+        <a href="#" class="default-purple-a all-posts-a first-post-a">{{ linkContent }}</a>
         <lastPost
             v-for="item in items"
             :key="item.id"
             :post="item"
         />
-        <a href="#" class="default-purple-a all-posts-a second-post-a">ALL POSTS</a>
+        <a href="#" class="default-purple-a all-posts-a second-post-a">{{ linkContent }}</a>
     </section>
 </template>
 
@@ -20,6 +20,8 @@ export default {
     },
     data () {
         return {
+            blogTitle:'Last posts',
+            linkContent: 'ALL POSTS',
             items: [
                 {
                     postImg: 'images/article-img.jpg',
