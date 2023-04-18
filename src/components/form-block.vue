@@ -9,7 +9,7 @@
             <input class="form-email" aria-label="email" type="text" name="email" placeholder="Email">
             <textarea name="desc" id="" cols="30" rows="10" placeholder="Description (optional)"></textarea>
         </div>
-        <button @click="sendButton" class="form-button default-purple-button">{{ buttonContent }}</button>
+        <button class="form-button default-purple-button">{{ buttonContent }}</button>
     </div>
 </template>
 
@@ -24,15 +24,7 @@ export default {
         }
     },
     methods: {
-        sendButton() {
-            const FORM_NAME = document.querySelector('.form-name');
-            const FORM_EMAIL = document.querySelector('.form-email');
 
-            if (!FORM_EMAIL.value && !FORM_NAME.value) {
-                FORM_EMAIL.classList.add('error');
-                FORM_NAME.classList.add('error');
-            }
-        }
     }
 }
 </script>
