@@ -12,7 +12,9 @@
                         class="nav-item"
                         v-for="item in items"
                         :key="item.navItem"
-                        :href="item.navLink">
+                        :href="item.navLink"
+                        @click.prevent.stop="Scroll(item.navLink)"
+                    >
                         {{ item.navItem }}
                     </a>
                     <img @click="openBurgerMenu" src="/images/menu-burger.png" alt="menu-burger" class="menu-burger">
@@ -23,6 +25,7 @@
 </template>
 
 <script>
+import {ScrollToElem} from '@/utils/helpers'
 
 export default {
     name: "header-block",
@@ -58,7 +61,10 @@ export default {
                 menuBurgerContent.style.display = 'none';
                 document.querySelector("body").style.overflow = 'visible';
             }
-        }
+        },
+        Scroll(navLink) {
+            ScrollToElem(navLink)
+        },
     }
 }
 </script>
