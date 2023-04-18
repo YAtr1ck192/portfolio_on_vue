@@ -29,12 +29,12 @@ export default {
     data () {
         return {
             slides: [
-                '/images/telegram-icon.png',
-                '/images/whatsapp-icon.png',
-                '/images/instagram-icon.png',
-                '/images/facebook-icon.png',
-                '/images/youtube-icon.png',
-                '/images/twitter-icon.png'
+                '/images/i.png',
+                '/images/i.png',
+                '/images/i.png',
+                '/images/i.png',
+                '/images/i.png',
+                '/images/i.png'
             ]
         }
     },
@@ -51,12 +51,19 @@ export default {
                     prevEl: '.arrow_left'
                 },
                 breakpoints: {
-                    600: {
-                        slidesPerView: 3,
+                    320: {
+                        slidesPerView: 1,
                     },
-                    1115: {
+                    620: {
+                        slidesPerView: 3,
+                        spaceBetween: 20,
+                    },
+                    1201: {
                         slidesPerView: 6,
-                    }
+                        spaceBetween: 20,
+                    },
+
+
                 }
             }
         }
@@ -75,23 +82,10 @@ export default {
 .swiper {
     max-width: 940px;
 }
-.swiper-button-prev {
-    left: 20px
-}
-.swiper-button-next {
-    right: 20px
-}
 .swiper-button-next  img {
     transform: rotate(180deg);
 }
-.swiper-button-prev, .swiper-button-next {
-    width: 48px;
-    height: 48px;
-    background: transparent;
-}
-.swiper-button-prev:after, .swiper-button-next:after {
-    content: none
-}
+
 .arrow_left, .arrow_right {
     cursor: pointer;
     border: none;
@@ -107,47 +101,47 @@ export default {
     right: 56px;
 }
 .swiper-slide img {
-    max-width: 120px;
-    max-height: 70px;
+    width: 140px;
+    height: 80px;
 }
 .swiper {
     max-width: 940px;
 }
 @media screen and (min-width: 1001px) and (max-width: 1200px){
-    swiper {
+    .swiper {
         max-width: 460px;
     }
 }
 @media screen and (min-width: 941px) and (max-width: 1000px) {
-    swiper {
+    .swiper {
         max-width: 460px;
     }
 }
 @media screen and (min-width: 820px) and (max-width: 940px) {
-    swiper {
+    .swiper {
         max-width: 460px;
     }
 }
 @media screen and (min-width: 620px) and (max-width: 819px) {
-    swiper {
+    .swiper {
         max-width: 460px;
     }
-    .slider-arrow-left {
+    .arrow_left {
         left: 10px;
     }
-    .slider-arrow-right {
+    .arrow_right {
         right: 10px;
     }
 }
 @media screen and (min-width: 320px) and (max-width: 619px){
-    .slider-arrow-left {
+    .arrow_left {
         left: 10px;
     }
-    .slider-arrow-right {
+    .arrow_right {
         right: 10px;
     }
-    swiper {
-        max-width: 140px;
+    .swiper {
+        width: 140px;
     }
 }
 </style>
