@@ -3,7 +3,7 @@
         <HeaderBlock />
         <MenuBurgerContent />
         <MainInfo id="about"/>
-        <SkillsBlock id="#skills"/>
+        <SkillsBlock id="skills"/>
         <SocialNetworkBlock id="social"/>
         <LastPostsBlock id="blog"/>
         <FormBlock id="contact-us"/>

@@ -116,6 +116,9 @@ export default {
         font-family: "rb";
         background: transparent;
         cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     .top-item-skill-card {
         display: flex;
