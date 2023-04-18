@@ -4,72 +4,29 @@
         <div class="social-networks-subtitle small-p">
             {{ blockSubtitle }}
         </div>
-        <div class="slider-track">
-            <img @click="prevSlide" src="/images/arrow-left.png" alt="slider-arrow" class="slider-arrow slider-arrow-left">
-            <img @click="nextSlide" src="/images/arrow-right.png" alt="slider-arrow" class="slider-arrow slider-arrow-right">
-            <div class="wrapper">
-                <div class="slides">
-                    <div class="slide"
-                         v-for="item in items"
-                         :key="item.src"
-                    >
-                        <a href="#">
-                            <img :src="item.src" alt="social-network-logo">
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <SliderWrapper />
     </div>
 </template>
 
 <script>
+
+import SliderWrapper from "@/components/SliderWrapper.vue";
 export default {
     name: "social-network-block",
     data() {
         return {
             blockTitle:'My social networks',
             blockSubtitle:'There are many reasons to get down and start to get depressed about your situation.',
-            items:[
-                { src: '/images/telegram-icon.png' },
-                { src: '/images/whatsapp-icon.png' },
-                { src: '/images/instagram-icon.png' },
-                { src: '/images/facebook-icon.png' },
-                { src: '/images/youtube-icon.png' },
-                { src: '/images/twitter-icon.png' },
-            ]
         }
     },
-    methods: {
-        nextSlide(){
-            const SLIDES_BLOCK =  document.querySelector('.slides');
-            let slides = Array.from(document.querySelectorAll('.slide'));
-            let slide = slides[slides.length-1];
-            let newSlide = slide.cloneNode(true);
-            slide.remove();
-            SLIDES_BLOCK.insertAdjacentElement('afterbegin', newSlide);
-        },
-        prevSlide(){
-            const SLIDES_BLOCK =  document.querySelector('.slides');
-            let slides = Array.from(document.querySelectorAll('.slide'));
-            let slide = slides[0];
-            let newSlide = slide.cloneNode(true);
-            slide.remove();
-            SLIDES_BLOCK.insertAdjacentElement('beforeend', newSlide);
-        }
-    },
+    components: {
+        SliderWrapper
+    }
 }
 </script>
 
 <style scoped>
-  .wrapper {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      left: 0;
-      transition: .3s ease-in-out;
-  }
+
   .social-networks-block {
       display: flex;
       align-items: center;
@@ -86,67 +43,27 @@ export default {
       margin-bottom: 40px;
       text-align: center;
   }
-  .slider-arrow {
-      position: absolute;
-      cursor: pointer;
-  }
-  .slider-arrow-left {
-      left: 40px;
-  }
-  .slider-arrow-right {
-      right: 40px;
-  }
-  .slider-track {
-      overflow: hidden;
-      max-width: 940px;
-      display: flex;
-      align-items: center;
-  }
-.slides {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 940px;
-}
-.slides:last-child {
-    margin-right: 0;
-}
 
-.slide {
-    width: 140px;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(238, 238, 238, 0.32);
-    border-radius: 4px;
-    animation: ani .6s forwards;
-}
-.slide img {
-    max-width: 120px;
-    max-height: 70px;
-    padding-top: 3px;
-}
   @media screen and (min-width: 1001px) and (max-width: 1200px){
-      .slider-track {
+      sliderWrapper {
           overflow: hidden;
           max-width: 460px;
       }
   }
   @media screen and (min-width: 941px) and (max-width: 1000px) {
-      .slider-track {
+      sliderWrapper {
           overflow: hidden;
           max-width: 460px;
       }
   }
   @media screen and (min-width: 820px) and (max-width: 940px) {
-      .slider-track {
+      sliderWrapper {
           overflow: hidden;
           max-width: 460px;
       }
   }
   @media screen and (min-width: 620px) and (max-width: 819px) {
-      .slider-track {
+      sliderWrapper {
           overflow: hidden;
           max-width: 460px;
       }
@@ -158,27 +75,15 @@ export default {
       }
   }
   @media screen and (min-width: 320px) and (max-width: 619px){
-      .slider-track {
-          overflow: hidden;
-          max-width: 160px;
-      }
       .slider-arrow-left {
           left: 10px;
       }
       .slider-arrow-right {
           right: 10px;
       }
-      .slider-track {
+      sliderWrapper {
           overflow: hidden;
           max-width: 140px;
-      }
-  }
-  @keyframes ani {
-      0% {
-          opacity: .8;
-      }
-      100% {
-          opacity: 1;
       }
   }
 </style>
