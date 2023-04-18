@@ -29,12 +29,12 @@ export default {
     data () {
         return {
             slides: [
-                '/images/i.png',
-                '/images/i.png',
-                '/images/i.png',
-                '/images/i.png',
-                '/images/i.png',
-                '/images/i.png'
+                '/images/telegram-icon.png',
+                '/images/whatsapp-icon.png',
+                '/images/instagram-icon.png',
+                '/images/facebook-icon.png',
+                '/images/youtube-icon.png',
+                '/images/twitter-icon.png'
             ]
         }
     },
@@ -53,6 +53,7 @@ export default {
                 breakpoints: {
                     320: {
                         slidesPerView: 1,
+                        spaceBetween: 20,
                     },
                     620: {
                         slidesPerView: 3,
@@ -103,6 +104,7 @@ export default {
 .swiper-slide img {
     width: 140px;
     height: 80px;
+    border-radius: 4px;
 }
 .swiper {
     max-width: 940px;
@@ -141,7 +143,10 @@ export default {
         right: 10px;
     }
     .swiper {
-        width: 140px;
+        max-width: 140px;
+    }
+    .swiper-slide img {
+      margin-left: -15px;
     }
 }
 </style>
