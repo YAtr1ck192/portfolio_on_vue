@@ -67,20 +67,10 @@ export default {
           overflow: hidden;
           max-width: 460px;
       }
-      .slider-arrow-left {
-          left: 10px;
-      }
-      .slider-arrow-right {
-          right: 10px;
-      }
+
   }
   @media screen and (min-width: 320px) and (max-width: 619px){
-      .slider-arrow-left {
-          left: 10px;
-      }
-      .slider-arrow-right {
-          right: 10px;
-      }
+
       sliderWrapper {
           overflow: hidden;
           max-width: 140px;

@@ -1,16 +1,16 @@
 <template>
     <div class="skill-cards">
         <div
-                :class="['skill-card', {'active-card': index === activeIndex}]"
-                v-for="(item, index) in items"
-                :key="index"
+            :class="['skill-card', {'active-card': index === activeIndex}]"
+            v-for="(item, index) in items"
+            :key="index"
         >
             <div @click="toggleAccordion(index)" class="top-item-skill-card" >
                 <div class="card-title">{{ item.cardTitle }}</div>
                 <button class="skill-card-button">
                     <img
-                            :src="`/images/${index === activeIndex ? 'minus-accordion' : 'plus-accordion'}.png`"
-                            alt="plus/minus"
+                        :src="`/images/${index === activeIndex ? 'minus-accordion' : 'plus-accordion'}.png`"
+                        alt="plus/minus"
                     >
                 </button>
             </div>
