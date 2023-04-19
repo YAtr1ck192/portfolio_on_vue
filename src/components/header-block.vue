@@ -93,6 +93,7 @@ nav .nav-item:hover {
 }
 .burger-menu {
     display: none;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 980px) {
