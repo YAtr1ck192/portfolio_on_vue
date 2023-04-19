@@ -34,21 +34,20 @@ export default {
                 },
                 {
                     postImg: 'images/article-img.jpg',
-                    postTitle: 'Choosing The Right Path',
+                    postTitle: 'There are many reasons to get down',
                     postDesc:
-                        'Although this is well intentioned and the goal certainly is to reduce the quantity ' +
-                        'of these bothersome thoughts, the technique is inherently flawed. Requiring the individual ' +
-                        'to remember what not to think of infers that they have already thought it. It is akin to ' +
-                        'telling them to not think of a blue banana.',
+                        'The only moment, the only life we have is in the NOW. What happened a few moments or ' +
+                        'several years ago is gone, what will happen this evening, or next month when we go on ' +
+                        'holidays is not here yet.',
                     postDate: '58 Oct 20'
                 },
                 {
                     postImg: 'images/article-img.jpg',
-                    postTitle: 'Start your journey here',
+                    postTitle: 'There are many reasons to get down',
                     postDesc:
                         'The only moment, the only life we have is in the NOW. What happened a few moments or ' +
-                        'several years ago is gone, what will happen this evening, or next month when we go' +
-                        ' on holidays is not here yet.',
+                        'several years ago is gone, what will happen this evening, or next month when we go on ' +
+                        'holidays is not here yet.',
                     postDate: '29 Oct 18'
                 }
             ]

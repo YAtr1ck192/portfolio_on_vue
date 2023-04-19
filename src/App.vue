@@ -1,7 +1,6 @@
 <template>
     <div id="app">
         <HeaderBlock />
-        <MenuBurgerContent />
         <MainInfo id="about"/>
         <SkillsBlock id="skills"/>
         <SocialNetworkBlock id="social"/>
@@ -13,7 +12,6 @@
 
 <script>
 import HeaderBlock from './components/header-block.vue';
-import MenuBurgerContent from './components/menu-burger-content.vue';
 import MainInfo from './components/main-info.vue';
 import SkillsBlock from './components/skills-block.vue';
 import SocialNetworkBlock from './components/social-network-block.vue';
@@ -25,7 +23,6 @@ export default {
     name: 'App',
     components: {
         HeaderBlock,
-        MenuBurgerContent,
         MainInfo,
         SkillsBlock,
         SocialNetworkBlock,
@@ -33,12 +30,9 @@ export default {
         FooterBlock,
         LastPostsBlock,
     },
-    methods: {
-
-    }
 }
 </script>
 
 <style>
-@import "@/css/global_styles.css";
+    @import "@/css/global_styles.css";
 </style>

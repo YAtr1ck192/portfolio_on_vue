@@ -5,13 +5,18 @@
             <div class="person-speciality small-p">
                 {{ specialty }}
             </div>
-            <a class="default-purple-a main-info-a" href="#skills">{{ buttonContent }}</a>
+            <a
+                class="default-purple-a main-info-a"
+                :href="aLink"
+                @click.prevent.stop="Scroll(aLink)"
+            >{{ buttonContent }}</a>
         </div>
         <img class="main-image" src="/images/person-img.jpg" alt="person-img">
     </div>
 </template>
 
 <script>
+import {ScrollToElem} from '@/utils/helpers'
 export default {
     name: "main-info",
     data () {
@@ -19,9 +24,14 @@ export default {
             userName: 'I am Tolya',
             specialty: 'Frontend-developer',
             buttonContent: 'SCROLL TO MORE',
-
+            aLink: '#skills'
         }
     },
+    methods: {
+        Scroll(aLink) {
+            ScrollToElem(aLink)
+        },
+    }
 }
 </script>
 
