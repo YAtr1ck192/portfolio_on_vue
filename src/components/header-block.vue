@@ -51,6 +51,8 @@ export default {
         },
         Scroll(navLink) {
             this.menuIsShow = false;
+            let body = document.querySelector('body');
+            body.style.overflow = '';
             ScrollToElem(navLink)
         },
     }
@@ -101,6 +103,7 @@ nav .nav-item:hover {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        margin-right: 22px;
     }
     .active {
         width: 100%;
@@ -110,6 +113,7 @@ nav .nav-item:hover {
         height: 2px;
         border-radius: 1px;
         background: #5C33B9;
+
     }
     .burger-menu .line1 {
         transform-origin: 0 0;
