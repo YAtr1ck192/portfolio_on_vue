@@ -30,7 +30,8 @@ export default {
                         'The only moment, the only life we have is in the NOW. What happened a few moments or ' +
                         'several years ago is gone, what will happen this evening, or next month when we go on ' +
                         'holidays is not here yet.',
-                    postDate: '10 Oct 21'
+                    postDate: '10 Oct 21',
+                    postLink:'#'
                 },
                 {
                     postImg: 'images/article-img.jpg',
@@ -39,7 +40,8 @@ export default {
                         'The only moment, the only life we have is in the NOW. What happened a few moments or ' +
                         'several years ago is gone, what will happen this evening, or next month when we go on ' +
                         'holidays is not here yet.',
-                    postDate: '58 Oct 20'
+                    postDate: '58 Oct 20',
+                    postLink:'#'
                 },
                 {
                     postImg: 'images/article-img.jpg',
@@ -48,7 +50,8 @@ export default {
                         'The only moment, the only life we have is in the NOW. What happened a few moments or ' +
                         'several years ago is gone, what will happen this evening, or next month when we go on ' +
                         'holidays is not here yet.',
-                    postDate: '29 Oct 18'
+                    postDate: '29 Oct 18',
+                    postLink:'#'
                 }
             ]
         }

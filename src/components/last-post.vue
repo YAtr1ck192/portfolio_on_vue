@@ -12,7 +12,7 @@
                 <div class="small-p date-add">
                     {{ post.postDate }}
                 </div>
-                <a class="default-purple-a" href="#">{{ linkContent }}</a>
+                <a class="default-purple-a" :href="post.postLink">{{ linkContent }}</a>
             </div>
         </div>
     </article>
