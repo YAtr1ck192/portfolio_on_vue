@@ -7,9 +7,9 @@
             </div>
             <a
                 class="default-purple-a main-info-a"
-                :href="link"
-                @click.prevent.stop="Scroll(link)"
-            >{{ buttonContent }}</a>
+                :href="link.linkUrl"
+                @click.prevent.stop="Scroll(link.linkUrl)"
+            >{{ link.linkContent }}</a>
         </div>
         <img class="main-image" src="/images/person-img.jpg" alt="person-img">
     </div>
@@ -23,13 +23,16 @@ export default {
         return {
             userName: 'I am Tolya',
             specialty: 'Frontend-developer',
-            buttonContent: 'SCROLL TO MORE',
-            link: '#skills'
+            link: {
+                linkContent: 'SCROLL TO MORE',
+                linkUrl: '#skills'
+            }
+
         }
     },
     methods: {
-        Scroll(link) {
-            ScrollToElem(link)
+        Scroll(linkUrl) {
+            ScrollToElem(linkUrl)
         },
     }
 }

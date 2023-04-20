@@ -113,7 +113,6 @@ nav .nav-item:hover {
         height: 2px;
         border-radius: 1px;
         background: #5C33B9;
-
     }
     .burger-menu .line1 {
         transform-origin: 0 0;

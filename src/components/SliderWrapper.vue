@@ -45,7 +45,6 @@ export default {
                 spaceBetween: 20,
                 slidesPerGroup: 1,
                 loop: true,
-                loopFillGroupWithBlank: true,
                 navigation: {
                     nextEl: '.arrow_right',
                     prevEl: '.arrow_left'
