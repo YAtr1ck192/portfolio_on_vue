@@ -1,30 +1,81 @@
 <template>
     <div id="contact-us" class="default-block form-block container">
-        <h2 class="block-title">{{ blockTitle }}</h2>
+        <h2 class="block-title">{{ blockInfo.blockTitle }}</h2>
         <div class="contact-us-desc small-p">
-            {{ descContent }}
+            {{ blockInfo.descContent }}
         </div>
         <div class="form-group">
-            <input class="form-name" aria-label="name" type="text" name="name" placeholder="Your name">
-            <input class="form-email" aria-label="email" type="text" name="email" placeholder="Email">
-            <textarea name="desc" id="" cols="30" rows="10" placeholder="Description (optional)"></textarea>
+            <input
+                :class="[ {'error-form' : nameForm.errorName}, 'form' ]"
+                v-model.lazy="nameForm.formName"
+                type="text"
+                name="name"
+                placeholder="Your name"
+            >
+            <input
+                :class="[ {'error-form' : emailForm.errorEmail}, 'form' ]"
+                type="text"
+                name="email"
+                placeholder="Email"
+                v-model="emailForm.formEmail"
+                @change="ValidationFunc"
+            >
+            <textarea
+                name="desc"
+                id="" cols="30"
+                rows="10"
+                placeholder="Description (optional)"
+                v-model="descForm.descContent"
+                @change="textAreaValidationFunc"
+            ></textarea>
         </div>
-        <button class="form-button default-purple-button">{{ buttonContent }}</button>
+        <button class="form-button default-purple-button">{{ blockInfo.buttonContent }}</button>
     </div>
 </template>
 
 <script>
+
 export default {
     name: "form-block",
     data () {
         return {
-            blockTitle:'Contact us',
-            descContent: 'Life is 10% what happens to you and 90% how you react to it. It does not matter how slowly you go as long as you do not stop. Confucius.',
-            buttonContent:'SEND'
+            blockInfo: {
+                blockTitle:'Contact us',
+                descContent: 'Life is 10% what happens to you and 90% how you react to it. It does not matter how slowly you go as long as you do not stop. Confucius.',
+                buttonContent:'SEND',
+            },
+            nameForm: {
+                formName: '',
+                errorName: false,
+            },
+            emailForm: {
+                formEmail: '',
+                emailValidation: new RegExp("^((([0-9A-Za-z]{1}[-0-9A-z\\.]{0,30}[0-9A-Za-z]?)|([0-9А-Яа-я]{1}[-0-9А-я\\.]{0,30}[0-9А-Яа-я]?))@([-A-Za-z]{1,}\\.){1,}[-A-Za-z]{2,})$"),
+                errorEmail: false,
+            },
+            descForm: {
+                formMessage: '',
+                descContent: ''
+            },
         }
     },
     methods: {
-
+        textAreaValidationFunc () {
+            const val = 'qqq'
+            let star = '*';
+            let valCount = val.length;
+            star = star.repeat(valCount)
+            this.descForm.descContent = this.descForm.descContent.split(val).join(star)
+        },
+        ValidationFunc () {
+            this.emailForm.errorEmail = !this.emailForm.emailValidation.test(this.emailForm.formEmail);
+        },
+    },
+    watch: {
+        'nameForm.formName' : function (value) {
+            const nameValidation = /[^a-zA-Zа-яА-Я ]/ui;
+            this.nameForm.errorName = nameValidation.test(value);
+        }
     }
 }
 </script>
@@ -45,7 +96,7 @@ export default {
         text-align: center;
         margin-bottom: 40px;
     }
-    .form-group input {
+    .form {
         padding: 12px 0 12px 15px;
         font-family: "rr";
         font-size: 16px;
@@ -77,9 +128,7 @@ export default {
         outline: none;
         resize:none;
     }
-    .form-group input:invalid, .form-group textarea:invalid {
-        border: solid 1px #DF1F1F;
-    }
+
     .form-button {
         padding: 13px 60px;
     }
@@ -96,6 +145,9 @@ export default {
         border: solid 1px #6E38F7;
         color: #6E38F7;
         background: white;
+    }
+    .error-form {
+        border: solid 1px #DF1F1F;
     }
     @media screen and (min-width: 320px) and (max-width: 619px){
         .form-group {
