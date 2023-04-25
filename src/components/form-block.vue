@@ -7,18 +7,19 @@
         <div class="form-group">
             <input
                 :class="[ {'error-form' : nameForm.errorName}, 'form' ]"
-                v-model.lazy="nameForm.formName"
+                v-model.lazy="nameForm.formNameContent"
                 type="text"
                 name="name"
                 placeholder="Your name"
             >
             <input
-                :class="[ {'error-form' : emailForm.errorEmail}, 'form' ]"
+                :class="[ {'error-form' : emailForm.errorEmail, 'form' : emailForm.emailDefaultForm}]"
                 type="text"
                 name="email"
                 placeholder="Email"
-                v-model="emailForm.formEmail"
+                v-model="emailForm.formEmailContent"
                 @change="ValidationFunc"
+                @input="defaultForm"
             >
             <textarea
                 name="desc"
@@ -45,11 +46,12 @@ export default {
                 buttonContent:'SEND',
             },
             nameForm: {
-                formName: '',
+                formNameContent: '',
                 errorName: false,
             },
             emailForm: {
-                formEmail: '',
+                formEmailContent: '',
+                emailDefaultForm: true,
                 emailValidation: new RegExp("^((([0-9A-Za-z]{1}[-0-9A-z\\.]{0,30}[0-9A-Za-z]?)|([0-9А-Яа-я]{1}[-0-9А-я\\.]{0,30}[0-9А-Яа-я]?))@([-A-Za-z]{1,}\\.){1,}[-A-Za-z]{2,})$"),
                 errorEmail: false,
             },
@@ -61,15 +63,18 @@ export default {
     },
     methods: {
         textAreaValidationFunc () {
-            const val = 'qqq'
-            let star = '*';
-            let valCount = val.length;
-            star = star.repeat(valCount)
-            this.descForm.descContent = this.descForm.descContent.split(val).join(star)
+            const val = ['1', '2']
+            for (let i = 0; i < val.length; i++){
+                this.descForm.descContent = this.descForm.descContent.split(val[i]).join('*')
+            }
         },
         ValidationFunc () {
-            this.emailForm.errorEmail = !this.emailForm.emailValidation.test(this.emailForm.formEmail);
+            this.emailForm.errorEmail = !this.emailForm.emailValidation.test(this.emailForm.formEmailContent);
+            this.emailDefaultForm = this.emailForm.emailValidation.test(this.emailForm.formEmailContent);
         },
+        defaultForm () {
+            this.emailForm.errorEmail = this.emailForm.emailValidation.test(this.emailForm.formEmailContent);
+        }
     },
     watch: {
         'nameForm.formName' : function (value) {
