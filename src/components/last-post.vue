@@ -3,16 +3,16 @@
         <img class="article-img" :src="post.postImg" alt="article-img">
         <div class="article-card-desc">
             <div class="article-title-and-desc">
-                <div class="card-title blog-title">{{ post.postTitle }}</div>
+                <div class="card-title blog-title">{{ post.title }}</div>
                 <div class="card-desc article-desc">
-                    <p>{{ post.postDesc }}</p>
+                    <p>{{ post.description }}</p>
                 </div>
             </div>
             <div class="bottom-card-item">
                 <div class="small-p date-add">
-                    {{ post.postDate }}
+                    {{ post.date }}
                 </div>
-                <a class="default-purple-a" :href="post.postLink">{{ linkContent }}</a>
+                <a class="default-purple-a" :href="post.link">{{ linkContent }}</a>
             </div>
         </div>
     </article>
@@ -28,7 +28,8 @@ export default {
         return {
             linkContent: 'READ MORE'
         }
-    }
+    },
+
 }
 </script>
 

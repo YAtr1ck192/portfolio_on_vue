@@ -7,6 +7,7 @@
 
 <script>
 import SkillCards from '../components/skill-cards.vue';
+
 export default {
     name: "skills-block",
     components: {
@@ -17,6 +18,12 @@ export default {
             blockTitle:'Skills',
         }
     },
+    created() {
+        this.axios.get('/api/data.json')
+        .then(response => {
+            this.blockTitle = response.data.skills.title
+        })
+    }
 }
 
 </script>

@@ -2,11 +2,11 @@
     <div class="skill-cards">
         <div
             :class="['skill-card', {'active-card': index === activeIndex}]"
-            v-for="(item, index) in items"
+            v-for="(item, index) in content"
             :key="index"
         >
             <div @click="toggleAccordion(index)" class="top-item-skill-card" >
-                <div class="card-title">{{ item.cardTitle }}</div>
+                <div class="card-title">{{ item.key }}</div>
                 <button class="skill-card-button">
                     <img
                         :src="`/images/${index === activeIndex ? 'minus-accordion' : 'plus-accordion'}.png`"
@@ -16,10 +16,7 @@
             </div>
             <div v-show="index === activeIndex" class="card-desc">
                 <p>
-                    {{ item.cardFirstText }}
-                </p>
-                <p>
-                    {{ item.cardSecondText }}
+                    {{ item.value }}
                 </p>
             </div>
         </div>
@@ -33,44 +30,7 @@ export default {
     data () {
         return {
             activeIndex: null,
-            items: [
-                {
-                    cardFirstText: 'Do you sometimes have the feeling that you’re running into the same obstacles over and over again? ' +
-                        'Many of my conflicts have the same feel to them, like “Hey, I think I’ve been here before,” but I can’t figure out how ' +
-                        'I wound up in the same place. ',
-                    cardSecondText: 'The situation is different, but the conflict feels the same. I first read this poem in “The Tibetan Book of Living' +
-                        ' and Dying” by Sogyal Rinpoche. When I “Googled” it, I found fourteen pages of links. It’s clearly a favorite with many people;' +
-                        ' I know it speaks volumes to me. “Autobiography in Five Chapters”',
-                    cardTitle: 'Html'
-                },
-                {
-                    cardFirstText: 'Do you sometimes have the feeling that you’re running into the same obstacles over and over again? ' +
-                        'Many of my conflicts have the same feel to them, like “Hey, I think I’ve been here before,” but I can’t figure out how ' +
-                        'I wound up in the same place. ',
-                    cardSecondText: 'The situation is different, but the conflict feels the same. I first read this poem in “The Tibetan Book of Living' +
-                        ' and Dying” by Sogyal Rinpoche. When I “Googled” it, I found fourteen pages of links. It’s clearly a favorite with many people;' +
-                        ' I know it speaks volumes to me. “Autobiography in Five Chapters”',
-                    cardTitle: 'CSS'
-                },
-                {
-                    cardFirstText: 'Do you sometimes have the feeling that you’re running into the same obstacles over and over again? ' +
-                        'Many of my conflicts have the same feel to them, like “Hey, I think I’ve been here before,” but I can’t figure out how ' +
-                        'I wound up in the same place. ',
-                    cardSecondText: 'The situation is different, but the conflict feels the same. I first read this poem in “The Tibetan Book of Living' +
-                        ' and Dying” by Sogyal Rinpoche. When I “Googled” it, I found fourteen pages of links. It’s clearly a favorite with many people;' +
-                        ' I know it speaks volumes to me. “Autobiography in Five Chapters”',
-                    cardTitle: 'Java Script'
-                },
-                {
-                    cardFirstText: 'Do you sometimes have the feeling that you’re running into the same obstacles over and over again? ' +
-                        'Many of my conflicts have the same feel to them, like “Hey, I think I’ve been here before,” but I can’t figure out how ' +
-                        'I wound up in the same place. ',
-                    cardSecondText: 'The situation is different, but the conflict feels the same. I first read this poem in “The Tibetan Book of Living' +
-                        ' and Dying” by Sogyal Rinpoche. When I “Googled” it, I found fourteen pages of links. It’s clearly a favorite with many people;' +
-                        ' I know it speaks volumes to me. “Autobiography in Five Chapters”',
-                    cardTitle: 'Vue'
-                },
-            ],
+            content: []
         }
     },
     methods: {
@@ -82,6 +42,12 @@ export default {
             }
         }
     },
+    created() {
+        this.axios.get('/api/data.json')
+        .then(response => {
+            this.content = response.data.skills.content
+        })
+    }
 }
 </script>
 
@@ -109,6 +75,7 @@ export default {
         font-family: "rr";
         color: #363940;
         margin-bottom: 20px;
+        line-height: 22px;
     }
     .skill-card-button {
         border: none;

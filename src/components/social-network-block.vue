@@ -1,8 +1,8 @@
 <template>
     <div id="social" class="social-networks-block container">
-        <h2 class="block-title">{{ blockTitle }}</h2>
+        <h2 class="block-title">{{ header.title }}</h2>
         <div class="social-networks-subtitle small-p">
-            {{ blockSubtitle }}
+            {{ header.subtitle }}
         </div>
         <SliderWrapper />
     </div>
@@ -15,12 +15,21 @@ export default {
     name: "social-network-block",
     data() {
         return {
-            blockTitle:'My social networks',
-            blockSubtitle:'There are many reasons to get down and start to get depressed about your situation.',
+            header: {
+                title: '',
+                subtitle: ''
+            }
         }
     },
     components: {
         SliderWrapper
+    },
+    created() {
+        this.axios.get('/api/data.json')
+          .then(response => {
+                this.header = response.data.social
+            }
+          )
     }
 }
 </script>

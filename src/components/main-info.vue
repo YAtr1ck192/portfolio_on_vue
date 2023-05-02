@@ -1,9 +1,9 @@
 <template>
     <div id="about" class="main-info container">
         <div class="main-info-left-part">
-            <h1 class="person-name">{{ userName }}</h1>
+            <h1 class="person-name">{{ promo.title }}</h1>
             <div class="person-speciality small-p">
-                {{ specialty }}
+                {{ promo.description }}
             </div>
             <a
                 class="default-purple-a main-info-a"
@@ -21,8 +21,11 @@ export default {
     name: "main-info",
     data () {
         return {
-            userName: 'I am Tolya',
-            specialty: 'Frontend-developer',
+            promo: {
+                title:'',
+                description: ''
+            },
+
             link: {
                 linkContent: 'SCROLL TO MORE',
                 linkUrl: '#skills'
@@ -34,6 +37,12 @@ export default {
         Scroll(linkUrl) {
             ScrollToElem(linkUrl)
         },
+    },
+    created() {
+        this.axios.get('/api/data.json')
+        .then(response => {
+            this.promo = response.data.promo
+        })
     }
 }
 </script>
@@ -54,13 +63,15 @@ export default {
     color: #363940;
     font-family: "rm";
     margin: 215px 0 106px 0;
-    max-width: 300px;
+    max-width: 450px;
 }
 .person-speciality {
     font-size: 16px;
     color: #95A1BB;
     font-family: "rr";
     margin-bottom: 213px;
+    max-width: 380px;
+    line-height: 22px;
 }
 .default-purple-a {
     text-decoration: none;

@@ -1,13 +1,13 @@
 =<template>
     <section id="blog" class="default-block container">
-        <h2 class="block-title-blog">{{ blogTitle }}</h2>
-        <a href="#" class="default-purple-a all-posts-a first-post-a">{{ linkContent }}</a>
+        <h2 class="block-title-blog">{{ posts.title }}</h2>
+        <a href="#" class="default-purple-a all-posts-a first-post-a">{{ posts.linkContent }}</a>
         <lastPost
-            v-for="item in items"
+            v-for="item in posts.content"
             :key="item.id"
             :post="item"
         />
-        <a href="#" class="default-purple-a all-posts-a second-post-a">{{ linkContent }}</a>
+        <a href="#" class="default-purple-a all-posts-a second-post-a">{{ posts.linkContent }}</a>
     </section>
 </template>
 
@@ -20,41 +20,19 @@ export default {
     },
     data () {
         return {
-            blogTitle:'Last posts',
-            linkContent: 'ALL POSTS',
-            items: [
-                {
-                    postImg: 'images/article-img.jpg',
-                    postTitle: 'There are many reasons to get down',
-                    postDesc:
-                        'The only moment, the only life we have is in the NOW. What happened a few moments or ' +
-                        'several years ago is gone, what will happen this evening, or next month when we go on ' +
-                        'holidays is not here yet.',
-                    postDate: '10 Oct 21',
-                    postLink:'#'
-                },
-                {
-                    postImg: 'images/article-img.jpg',
-                    postTitle: 'There are many reasons to get down',
-                    postDesc:
-                        'The only moment, the only life we have is in the NOW. What happened a few moments or ' +
-                        'several years ago is gone, what will happen this evening, or next month when we go on ' +
-                        'holidays is not here yet.',
-                    postDate: '58 Oct 20',
-                    postLink:'#'
-                },
-                {
-                    postImg: 'images/article-img.jpg',
-                    postTitle: 'There are many reasons to get down',
-                    postDesc:
-                        'The only moment, the only life we have is in the NOW. What happened a few moments or ' +
-                        'several years ago is gone, what will happen this evening, or next month when we go on ' +
-                        'holidays is not here yet.',
-                    postDate: '29 Oct 18',
-                    postLink:'#'
-                }
-            ]
+            posts: {
+                title: '',
+                linkContent: '',
+                content: [],
+            },
+
         }
+    },
+    created() {
+        this.axios.get('/api/data.json')
+          .then(response => {
+              this.posts = response.data.posts
+          })
     }
 }
 </script>
@@ -71,6 +49,7 @@ export default {
     font-size: 36px;
     color: #363940;
     font-family: "rm";
+    text-align: center;
 }
 .first-post-a{
     display: flex;

@@ -7,7 +7,7 @@
                 v-for="(slide, index) in slides"
                 :key="index"
             >
-                <img :src="slide" alt="slide"/>
+                <a :href="slide.link"><img :src="slide.icon" alt="slide"/></a>
             </swiper-slide>
         </swiper>
 
@@ -28,14 +28,7 @@ export default {
     },
     data () {
         return {
-            slides: [
-                '/images/telegram-icon.png',
-                '/images/whatsapp-icon.png',
-                '/images/instagram-icon.png',
-                '/images/facebook-icon.png',
-                '/images/youtube-icon.png',
-                '/images/twitter-icon.png'
-            ]
+            slides: []
         }
     },
     computed: {
@@ -67,6 +60,13 @@ export default {
                 }
             }
         }
+    },
+    created() {
+        this.axios.get('/api/data.json')
+          .then(response => {
+                this.slides = response.data.social.content
+            }
+          )
     }
 }
 </script>
@@ -100,10 +100,14 @@ export default {
 .arrow_right {
     right: 56px;
 }
+.swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .swiper-slide img {
-    width: 140px;
-    height: 80px;
-    border-radius: 4px;
+    max-width: 140px;
+    max-height: 80px;
 }
 .swiper {
     max-width: 940px;
@@ -142,7 +146,7 @@ export default {
         right: 10px;
     }
     .swiper {
-        max-width: 140px;
+        max-width: 120px;
     }
     .swiper-slide img {
       margin-left: -15px;
