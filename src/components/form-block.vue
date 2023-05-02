@@ -30,11 +30,19 @@
                 @change="textAreaValidationFunc"
             ></textarea>
         </div>
-        <button class="form-button default-purple-button">{{ blockInfo.buttonContent }}</button>
+        <button
+            class="form-button default-purple-button"
+            @click.prevent="postData"
+        >
+            {{ blockInfo.buttonContent }}
+        </button>
     </div>
+
 </template>
 
 <script>
+
+import axios from "axios";
 
 export default {
     name: "form-block",
@@ -59,6 +67,7 @@ export default {
                 formMessage: '',
                 descContent: ''
             },
+            mes:''
         }
     },
     methods: {
@@ -74,11 +83,29 @@ export default {
         },
         defaultForm () {
             this.emailForm.errorEmail = this.emailForm.emailValidation.test(this.emailForm.formEmailContent);
+        },
+        postData () {
+            axios.post('https://jsonplaceholder.typicode.com/users', {
+                postName: this.nameForm.formNameContent,
+                postEmail: this.emailForm.formEmailContent,
+                postDesc: this.descForm.descContent
+            })
+            .then(response => {
+                this.mes = response.status
+                this.nameForm.formNameContent = response.data.postName
+                this.emailForm.formEmailContent = response.data.postEmail
+                this.descForm.descContent = response.data.postDesc
+                console.log(this.mes)
+                console.log(this.nameForm.formNameContent)
+                console.log(this.emailForm.formEmailContent)
+                console.log(this.descForm.descContent)
+            })
+
         }
     },
     watch: {
         'nameForm.formName' : function (value) {
-            const nameValidation = /[^a-zA-Zа-яА-Я ]/ui;
+            const nameValidation =/[^a-zA-Zа-яА-Я ]/ui
             this.nameForm.errorName = nameValidation.test(value);
         }
     }
