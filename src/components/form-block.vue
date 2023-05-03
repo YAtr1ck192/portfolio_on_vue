@@ -6,28 +6,40 @@
         </div>
         <div class="form-group">
             <input
-              :class="[ {'error-form' : nameForm.errorName}, 'form' ]"
-              v-model.lazy="nameForm.formNameContent"
+              :class="[ {'error-form' : nameForm.errorName, 'form' : nameForm.nameDefaultForm} ]"
+              v-model="nameForm.formNameContent"
               type="text"
               name="name"
               placeholder="Your name"
+              @change="nameValidationFunc(
+/*                nameForm.errorName,
+                nameForm.nameValidation,
+                nameForm.formNameContent,
+                nameForm.nameDefaultForm*/
+              )"
+              @input="nameDefaultForm(
+/*                nameForm.errorName,
+                nameForm.nameValidation,
+                nameForm.formNameContent,*/
+              )"
             >
             <input
-              :class="[ {'error-form' : emailForm.errorEmail, 'form' : emailForm.emailDefaultForm}]"
+              :class="[ {'error-form' : emailForm.errorEmail, 'form' : emailForm.emailDefaultForm} ]"
+              v-model="emailForm.formEmailContent"
               type="text"
               name="email"
               placeholder="Email"
-              v-model="emailForm.formEmailContent"
-              @change="ValidationFunc"
-              @input="defaultForm"
+              @change="emailValidationFunc()"
+              @input="emailDefaultForm()"
             >
             <textarea
+              v-model="descForm.descContent"
               name="desc"
-              id="" cols="30"
+              id="textArea"
+              cols="30"
               rows="10"
               placeholder="Description (optional)"
-              v-model="descForm.descContent"
-              @change="textAreaValidationFunc"
+              @change="textAreaValidationFunc()"
             ></textarea>
         </div>
         <button
@@ -53,6 +65,8 @@ export default {
             },
             nameForm: {
                 formNameContent: '',
+                nameDefaultForm: true,
+                nameValidation: new RegExp(/^[a-zA-Z]+$/),
                 errorName: false,
             },
             emailForm: {
@@ -75,11 +89,27 @@ export default {
                 this.descForm.descContent = this.descForm.descContent.split(val[i]).join('*')
             }
         },
-        ValidationFunc () {
-            this.emailForm.errorEmail = !this.emailForm.emailValidation.test(this.emailForm.formEmailContent);
-            this.emailDefaultForm = this.emailForm.emailValidation.test(this.emailForm.formEmailContent);
+/*        valFunc (err, val, content, def) {
+            err = !val.test(content);
+            def = val.test(content);
+            console.log(def)
         },
-        defaultForm () {
+        defFuc(err, val, content) {
+            err = val.test(content)
+            console.log(err)
+        },*/
+        nameValidationFunc () {
+            this.nameForm.errorName = !this.nameForm.nameValidation.test(this.nameForm.formNameContent);
+            this.nameForm.nameDefaultForm = this.nameForm.nameValidation.test(this.nameForm.formNameContent);
+        },
+        nameDefaultForm () {
+            this.nameForm.errorName = this.nameForm.nameValidation.test(this.nameForm.formNameContent);
+        },
+        emailValidationFunc () {
+            this.emailForm.errorEmail = !this.emailForm.emailValidation.test(this.emailForm.formEmailContent);
+            this.emailForm.emailDefaultForm = this.emailForm.emailValidation.test(this.emailForm.formEmailContent);
+        },
+        emailDefaultForm () {
             this.emailForm.errorEmail = this.emailForm.emailValidation.test(this.emailForm.formEmailContent);
         },
         postData () {
@@ -102,12 +132,6 @@ export default {
             }
         }
     },
-    watch: {
-        'nameForm.formName' : function (value) {
-            const nameValidation =/[^a-zA-Zа-яА-Я ]/ui
-            this.nameForm.errorName = nameValidation.test(value);
-        }
-    }
 }
 </script>
 
@@ -177,6 +201,12 @@ export default {
 }
 .error-form {
     border: solid 1px #DF1F1F;
+    padding: 12px 0 12px 15px;
+    font-family: "rr";
+    font-size: 16px;
+    outline: none;
+    border-radius: 4px;
+    margin-bottom: 20px;
 }
 @media screen and (min-width: 320px) and (max-width: 619px){
     .form-group {
