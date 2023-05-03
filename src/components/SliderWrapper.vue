@@ -2,9 +2,9 @@
     <div class="slider-wrapper">
         <div class="arrow_left"><img src="/images/arrow-left.png" alt="arrow"/></div>
 
-        <swiper class="swiper container" :options="swiperOption">
+        <swiper class="swiper container" :options="swiperOption" :social="social">
             <swiper-slide
-                v-for="(slide, index) in slides"
+                v-for="(slide, index) in social"
                 :key="index"
             >
                 <a :href="slide.link"><img :src="slide.icon" alt="slide"/></a>
@@ -16,20 +16,15 @@
 </template>
 
 <script>
+
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 import 'swiper/css/swiper.css'
-
 
 export default {
     name: "socialSlider",
     components: {
         Swiper,
         SwiperSlide
-    },
-    data () {
-        return {
-            slides: []
-        }
     },
     computed: {
         swiperOption() {
@@ -61,13 +56,7 @@ export default {
             }
         }
     },
-    created() {
-        this.axios.get('/api/data.json')
-          .then(response => {
-                this.slides = response.data.social.content
-            }
-          )
-    }
+    props:['social']
 }
 </script>
 

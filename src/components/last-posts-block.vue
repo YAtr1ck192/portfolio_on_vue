@@ -3,9 +3,9 @@
         <h2 class="block-title-blog">{{ posts.title }}</h2>
         <a href="#" class="default-purple-a all-posts-a first-post-a">{{ posts.linkContent }}</a>
         <lastPost
-            v-for="item in posts.content"
-            :key="item.id"
-            :post="item"
+            v-for="(item, index) in posts.content"
+            :key="index"
+            :posts="item"
         />
         <a href="#" class="default-purple-a all-posts-a second-post-a">{{ posts.linkContent }}</a>
     </section>
@@ -18,22 +18,7 @@ export default {
     components: {
         lastPost,
     },
-    data () {
-        return {
-            posts: {
-                title: '',
-                linkContent: '',
-                content: [],
-            },
-
-        }
-    },
-    created() {
-        this.axios.get('/api/data.json')
-          .then(response => {
-              this.posts = response.data.posts
-          })
-    }
+    props: ['posts']
 }
 </script>
 
@@ -59,6 +44,9 @@ export default {
 }
 .second-post-a {
     display: none;
+}
+.all-posts-a {
+    font-size: 14px;
 }
 @media screen and (max-width:1000px) and (min-width: 520px) {
     .first-post-a {

@@ -2,7 +2,7 @@
     <div class="skill-cards">
         <div
             :class="['skill-card', {'active-card': index === activeIndex}]"
-            v-for="(item, index) in content"
+            v-for="(item, index) in skills.content"
             :key="index"
         >
             <div @click="toggleAccordion(index)" class="top-item-skill-card" >
@@ -24,15 +24,14 @@
 </template>
 
 <script>
-
 export default {
     name: "skill-cards",
     data () {
         return {
             activeIndex: null,
-            content: []
         }
     },
+    props: ['skills'],
     methods: {
         toggleAccordion (index) {
             if (this.activeIndex === index) {
@@ -42,12 +41,6 @@ export default {
             }
         }
     },
-    created() {
-        this.axios.get('/api/data.json')
-        .then(response => {
-            this.content = response.data.skills.content
-        })
-    }
 }
 </script>
 

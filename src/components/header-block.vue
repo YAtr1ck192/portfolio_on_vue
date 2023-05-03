@@ -26,6 +26,7 @@
 </template>
 
 <script>
+
 import {ScrollToElem} from '@/utils/helpers'
 
 export default {

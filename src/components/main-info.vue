@@ -21,29 +21,18 @@ export default {
     name: "main-info",
     data () {
         return {
-            promo: {
-                title:'',
-                description: ''
-            },
-
             link: {
                 linkContent: 'SCROLL TO MORE',
                 linkUrl: '#skills'
-            }
-
+            },
         }
     },
+    props: ['promo'],
     methods: {
         Scroll(linkUrl) {
             ScrollToElem(linkUrl)
         },
     },
-    created() {
-        this.axios.get('/api/data.json')
-        .then(response => {
-            this.promo = response.data.promo
-        })
-    }
 }
 </script>
 

@@ -1,38 +1,20 @@
 <template>
     <div id="app">
-        <HeaderBlock />
-        <MainInfo id="about"/>
-        <SkillsBlock id="skills"/>
-        <SocialNetworkBlock id="social"/>
-        <LastPostsBlock id="blog"/>
-        <FormBlock id="contact-us"/>
-        <FooterBlock />
+        <parentBlock />
     </div>
 </template>
 
 <script>
-import HeaderBlock from './components/header-block.vue';
-import MainInfo from './components/main-info.vue';
-import SkillsBlock from './components/skills-block.vue';
-import SocialNetworkBlock from './components/social-network-block.vue';
-import FormBlock from './components/form-block.vue';
-import FooterBlock from './components/footer-block.vue';
-import LastPostsBlock from './components/last-posts-block.vue'
+
+import parentBlock from "@/components/parent-block.vue";
 
 export default {
     name: 'App',
     components: {
-        HeaderBlock,
-        MainInfo,
-        SkillsBlock,
-        SocialNetworkBlock,
-        FormBlock,
-        FooterBlock,
-        LastPostsBlock,
+        parentBlock
     },
 }
 </script>
 
 <style>
-    @import "@/css/global_styles.css";
 </style>

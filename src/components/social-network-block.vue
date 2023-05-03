@@ -1,36 +1,23 @@
 <template>
     <div id="social" class="social-networks-block container">
-        <h2 class="block-title">{{ header.title }}</h2>
+        <h2 class="block-title">{{ social.title }}</h2>
         <div class="social-networks-subtitle small-p">
-            {{ header.subtitle }}
+            {{ social.subtitle }}
         </div>
-        <SliderWrapper />
+        <SliderWrapper :social="social.content"/>
     </div>
 </template>
 
 <script>
 
 import SliderWrapper from "@/components/SliderWrapper.vue";
+
 export default {
     name: "social-network-block",
-    data() {
-        return {
-            header: {
-                title: '',
-                subtitle: ''
-            }
-        }
-    },
     components: {
         SliderWrapper
     },
-    created() {
-        this.axios.get('/api/data.json')
-          .then(response => {
-                this.header = response.data.social
-            }
-          )
-    }
+    props: ['social']
 }
 </script>
 

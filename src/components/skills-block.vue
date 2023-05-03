@@ -1,11 +1,12 @@
 <template>
     <section id="skills" class="skills-block default-block container">
-        <h2 class="block-title">{{ blockTitle }}</h2>
-        <skillCards />
+        <h2 class="block-title">{{ skills.title }}</h2>
+        <skillCards :skills="skills"/>
     </section>
 </template>
 
 <script>
+
 import SkillCards from '../components/skill-cards.vue';
 
 export default {
@@ -13,17 +14,7 @@ export default {
     components: {
         SkillCards,
     },
-    data () {
-        return {
-            blockTitle:'Skills',
-        }
-    },
-    created() {
-        this.axios.get('/api/data.json')
-        .then(response => {
-            this.blockTitle = response.data.skills.title
-        })
-    }
+    props: ['skills']
 }
 
 </script>
