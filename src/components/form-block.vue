@@ -89,22 +89,24 @@ export default {
             this.emailForm.errorEmail = !val.test(content)
         },
         postData () {
-            if (!this.nameForm.errorName && !this.emailForm.errorEmail){
-                axios.post('https://jsonplaceholder.typicode.com/users', {
-                    postName: this.nameForm.formNameContent,
-                    postEmail: this.emailForm.formEmailContent,
-                    postDesc: this.descForm.descContent
-                })
-                .then(response => {
-                    this.mes = response.status
-                    this.nameForm.formNameContent = response.data.postName
-                    this.emailForm.formEmailContent = response.data.postEmail
-                    this.descForm.descContent = response.data.postDesc
-                    console.log(this.mes)
-                    console.log(this.nameForm.formNameContent)
-                    console.log(this.emailForm.formEmailContent)
-                    console.log(this.descForm.descContent)
-                })
+            if (this.nameForm.formNameContent && this.emailForm.formEmailContent) {
+                if (!this.nameForm.errorName && !this.emailForm.errorEmail){
+                    axios.post('https://jsonplaceholder.typicode.com/users', {
+                        postName: this.nameForm.formNameContent,
+                        postEmail: this.emailForm.formEmailContent,
+                        postDesc: this.descForm.descContent
+                    })
+                      .then(response => {
+                          this.mes = response.status
+                          this.nameForm.formNameContent = response.data.postName
+                          this.emailForm.formEmailContent = response.data.postEmail
+                          this.descForm.descContent = response.data.postDesc
+                          console.log(this.mes)
+                          console.log(this.nameForm.formNameContent)
+                          console.log(this.emailForm.formEmailContent)
+                          console.log(this.descForm.descContent)
+                      })
+                }
             }
         }
     },
