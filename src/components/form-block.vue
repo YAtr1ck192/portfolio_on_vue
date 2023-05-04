@@ -6,31 +6,26 @@
         </div>
         <div class="form-group">
             <input
-              :class="[ {'error-form' : nameForm.errorName, 'form' : nameForm.nameDefaultForm} ]"
+              :class="[ {'error-form' : nameForm.errorName}, 'form' ]"
               v-model="nameForm.formNameContent"
               type="text"
               name="name"
               placeholder="Your name"
-              @change="nameValidationFunc(
-/*                nameForm.errorName,
+              @change="nameValFunc(
                 nameForm.nameValidation,
-                nameForm.formNameContent,
-                nameForm.nameDefaultForm*/
-              )"
-              @input="nameDefaultForm(
-/*                nameForm.errorName,
-                nameForm.nameValidation,
-                nameForm.formNameContent,*/
+                nameForm.formNameContent
               )"
             >
             <input
-              :class="[ {'error-form' : emailForm.errorEmail, 'form' : emailForm.emailDefaultForm} ]"
+              :class="[ {'error-form' : emailForm.errorEmail}, 'form' ]"
               v-model="emailForm.formEmailContent"
               type="text"
               name="email"
               placeholder="Email"
-              @change="emailValidationFunc()"
-              @input="emailDefaultForm()"
+              @change="emailValFunc(
+                emailForm.emailValidation,
+                emailForm.formEmailContent
+              )"
             >
             <textarea
               v-model="descForm.descContent"
@@ -65,13 +60,11 @@ export default {
             },
             nameForm: {
                 formNameContent: '',
-                nameDefaultForm: true,
                 nameValidation: new RegExp(/^[a-zA-Z]+$/),
-                errorName: false,
+                errorName: '',
             },
             emailForm: {
                 formEmailContent: '',
-                emailDefaultForm: true,
                 emailValidation: new RegExp("^((([0-9A-Za-z]{1}[-0-9A-z\\.]{0,30}[0-9A-Za-z]?)|([0-9А-Яа-я]{1}[-0-9А-я\\.]{0,30}[0-9А-Яа-я]?))@([-A-Za-z]{1,}\\.){1,}[-A-Za-z]{2,})$"),
                 errorEmail: false,
             },
@@ -89,28 +82,11 @@ export default {
                 this.descForm.descContent = this.descForm.descContent.split(val[i]).join('*')
             }
         },
-/*        valFunc (err, val, content, def) {
-            err = !val.test(content);
-            def = val.test(content);
-            console.log(def)
+        nameValFunc (val, content) {
+            this.nameForm.errorName = !val.test(content)
         },
-        defFuc(err, val, content) {
-            err = val.test(content)
-            console.log(err)
-        },*/
-        nameValidationFunc () {
-            this.nameForm.errorName = !this.nameForm.nameValidation.test(this.nameForm.formNameContent);
-            this.nameForm.nameDefaultForm = this.nameForm.nameValidation.test(this.nameForm.formNameContent);
-        },
-        nameDefaultForm () {
-            this.nameForm.errorName = this.nameForm.nameValidation.test(this.nameForm.formNameContent);
-        },
-        emailValidationFunc () {
-            this.emailForm.errorEmail = !this.emailForm.emailValidation.test(this.emailForm.formEmailContent);
-            this.emailForm.emailDefaultForm = this.emailForm.emailValidation.test(this.emailForm.formEmailContent);
-        },
-        emailDefaultForm () {
-            this.emailForm.errorEmail = this.emailForm.emailValidation.test(this.emailForm.formEmailContent);
+        emailValFunc (val, content) {
+            this.emailForm.errorEmail = !val.test(content)
         },
         postData () {
             if (!this.nameForm.errorName && !this.emailForm.errorEmail){
@@ -119,16 +95,16 @@ export default {
                     postEmail: this.emailForm.formEmailContent,
                     postDesc: this.descForm.descContent
                 })
-                  .then(response => {
-                      this.mes = response.status
-                      this.nameForm.formNameContent = response.data.postName
-                      this.emailForm.formEmailContent = response.data.postEmail
-                      this.descForm.descContent = response.data.postDesc
-                      console.log(this.mes)
-                      console.log(this.nameForm.formNameContent)
-                      console.log(this.emailForm.formEmailContent)
-                      console.log(this.descForm.descContent)
-                  })
+                .then(response => {
+                    this.mes = response.status
+                    this.nameForm.formNameContent = response.data.postName
+                    this.emailForm.formEmailContent = response.data.postEmail
+                    this.descForm.descContent = response.data.postDesc
+                    console.log(this.mes)
+                    console.log(this.nameForm.formNameContent)
+                    console.log(this.emailForm.formEmailContent)
+                    console.log(this.descForm.descContent)
+                })
             }
         }
     },
