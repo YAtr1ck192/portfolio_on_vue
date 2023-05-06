@@ -1,7 +1,7 @@
 <template>
     <div class="app">
         <HeaderBlock />
-        <MainInfo id="about" :promo="promo"/>
+        <MainInfo id="about" />
         <SkillsBlock id="skills" :skills="skills"/>
         <SocialNetworkBlock id="social" :social="social" />
         <LastPostsBlock id="blog" :posts="posts"/>
@@ -32,22 +32,11 @@ export default {
     },
     data () {
         return {
-            promo: {},
             skills: {},
             social: {},
             posts: {}
         }
     },
-    created() {
-        this.axios.get('/api/data.json')
-        .then(response => {
-            this.promo = response.data.promo
-            this.skills = response.data.skills
-            this.social = response.data.social
-            this.posts = response.data.posts
-        })
-
-    }
 }
 </script>
 

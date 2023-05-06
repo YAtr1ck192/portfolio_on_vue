@@ -17,25 +17,27 @@
 
 <script>
 import {ScrollToElem} from '@/utils/helpers'
-import {mapState, mapActions} from "vuex";
+import {mapState} from "vuex";
 
 export default {
     name: "main-info",
-    props: ['promo'],
     computed: {
         ...mapState('promoBlock', {
             linkContent: 'linkContent',
             linkUrl: 'linkUrl'
         }),
+        ...mapState({
+            promo: 'promo'
+        })
     },
     methods: {
         Scroll(linkUrl) {
             ScrollToElem(linkUrl)
         },
-        ...mapActions('promoBlock', {
-            GET_PROMO: 'GET_PROMO'
-        })
     },
+    mounted() {
+        this.$store.dispatch('GET_PROMO')
+    }
 }
 </script>
 
