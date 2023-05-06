@@ -46,6 +46,7 @@ export default {
             this.social = response.data.social
             this.posts = response.data.posts
         })
+
     }
 }
 </script>

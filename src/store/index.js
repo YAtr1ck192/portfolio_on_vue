@@ -1,15 +1,20 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import mainBlock from './modules/main-block'
+import promoBlock from "@/store/modules/promo-block";
+import axios from "axios";
+
+Vue.prototype.axios = axios
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-    actions: {},
-    mutations: {},
     state: {},
     getters: {},
-    modules: {
-        mainBlock
+    mutations: {},
+    actions: {
+
     },
+    modules: {
+        promoBlock
+    }
 })

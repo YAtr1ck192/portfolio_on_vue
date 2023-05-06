@@ -7,9 +7,9 @@
             </div>
             <a
                 class="default-purple-a main-info-a"
-                :href="link.linkUrl"
-                @click.prevent.stop="Scroll(link.linkUrl)"
-            >{{ link.linkContent }}</a>
+                :href="linkUrl"
+                @click.prevent.stop="Scroll(linkUrl)"
+            >{{ linkContent }}</a>
         </div>
         <img class="main-image" src="/images/person-img.jpg" alt="person-img">
     </div>
@@ -17,21 +17,24 @@
 
 <script>
 import {ScrollToElem} from '@/utils/helpers'
+import {mapState, mapActions} from "vuex";
+
 export default {
     name: "main-info",
-    data () {
-        return {
-            link: {
-                linkContent: 'SCROLL TO MORE',
-                linkUrl: '#skills'
-            },
-        }
-    },
     props: ['promo'],
+    computed: {
+        ...mapState('promoBlock', {
+            linkContent: 'linkContent',
+            linkUrl: 'linkUrl'
+        }),
+    },
     methods: {
         Scroll(linkUrl) {
             ScrollToElem(linkUrl)
         },
+        ...mapActions('promoBlock', {
+            GET_PROMO: 'GET_PROMO'
+        })
     },
 }
 </script>
