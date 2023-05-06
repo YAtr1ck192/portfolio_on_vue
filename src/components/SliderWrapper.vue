@@ -2,7 +2,7 @@
     <div class="slider-wrapper">
         <div class="arrow_left"><img src="/images/arrow-left.png" alt="arrow"/></div>
 
-        <swiper class="swiper container" :options="swiperOption" :social="social">
+        <swiper class="swiper container" :options="swiperOption" :social="social.content">
             <swiper-slide
                 v-for="(slide, index) in social.content"
                 :key="index"
@@ -19,6 +19,7 @@
 
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 import 'swiper/css/swiper.css'
+import {mapActions, mapState} from "vuex";
 
 export default {
     name: "socialSlider",
@@ -54,7 +55,16 @@ export default {
 
                 }
             }
-        }
+        },
+        ...mapState('socialBlock', {
+            social: "social"
+        })
+    },
+    methods: {
+        ...mapActions('socialBlock', ['GET_SOCIAL'])
+    },
+    created() {
+        this.GET_SOCIAL()
     },
 }
 </script>

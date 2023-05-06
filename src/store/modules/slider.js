@@ -11,7 +11,7 @@ const socialBlock = {
                 .get('/api/social.json')
                 .then(response => {
                     const data = response.data.social
-                    commit('SET_SKILLS', data)
+                    commit('SET_SOCIAL', data)
                 })
         }
     },

@@ -12,14 +12,28 @@
 </template>
 
 <script>
+
 import lastPost from "@/components/last-post.vue";
+import {mapActions, mapState} from "vuex";
+
 export default {
     name: "last-posts-block",
     components: {
         lastPost,
     },
-    props: ['posts']
+    computed: {
+        ...mapState('postsBlock', {
+            posts: "posts"
+        })
+    },
+    methods: {
+        ...mapActions('postsBlock', ['GET_POSTS'])
+    },
+    created() {
+        this.GET_POSTS()
+    }
 }
+
 </script>
 
 <style scoped>
@@ -74,5 +88,4 @@ export default {
         max-width: 214px;
     }
 }
-@import "@/css/global_styles.css";
 </style>
