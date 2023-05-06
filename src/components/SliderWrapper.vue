@@ -2,9 +2,9 @@
     <div class="slider-wrapper">
         <div class="arrow_left"><img src="/images/arrow-left.png" alt="arrow"/></div>
 
-        <swiper class="swiper container" :options="swiperOption" :social="social.content">
+        <swiper class="swiper container" :options="swiperOption" :social="social">
             <swiper-slide
-                v-for="(slide, index) in social"
+                v-for="(slide, index) in social.content"
                 :key="index"
             >
                 <a :href="slide.link"><img :src="slide.icon" alt="slide"/></a>
@@ -56,7 +56,6 @@ export default {
             }
         }
     },
-    props:['social']
 }
 </script>
 

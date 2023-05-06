@@ -8,13 +8,23 @@
 <script>
 
 import SkillCards from '../components/skill-cards.vue';
-
+import {mapActions, mapState} from "vuex";
 export default {
     name: "skills-block",
+    computed: {
+        ...mapState('skillsBlock', {
+            skills: "skills"
+        })
+    },
+    methods: {
+        ...mapActions('skillsBlock', ['GET_SKILLS'])
+    },
     components: {
         SkillCards,
     },
-    props: ['skills']
+    created() {
+        this.GET_SKILLS()
+    }
 }
 
 </script>

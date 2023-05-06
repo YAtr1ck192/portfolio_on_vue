@@ -11,13 +11,24 @@
 <script>
 
 import SliderWrapper from "@/components/SliderWrapper.vue";
+import {mapActions, mapState} from "vuex";
 
 export default {
     name: "social-network-block",
+    computed: {
+        ...mapState('socialBlock', {
+            social: "social"
+        })
+    },
+    methods: {
+        ...mapActions('socialBlock', ['GET_SOCIAL'])
+    },
+    created() {
+        this.GET_SOCIAL()
+    },
     components: {
         SliderWrapper
-    },
-    props: ['social']
+    }
 }
 </script>
 
