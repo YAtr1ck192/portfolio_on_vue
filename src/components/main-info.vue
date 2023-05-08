@@ -1,9 +1,9 @@
 <template>
     <div id="about" class="main-info container">
         <div class="main-info-left-part">
-            <h1 class="person-name">{{ userName }}</h1>
+            <h1 class="person-name">{{ promo.title }}</h1>
             <div class="person-speciality small-p">
-                {{ specialty }}
+                {{ promo.description }}
             </div>
             <a
                 class="default-purple-a main-info-a"
@@ -17,12 +17,11 @@
 
 <script>
 import {ScrollToElem} from '@/utils/helpers'
+import {mapActions, mapState} from "vuex";
 export default {
     name: "main-info",
     data () {
         return {
-            userName: 'I am Tolya',
-            specialty: 'Frontend-developer',
             buttonContent: 'SCROLL TO MORE',
             link: '#skills'
         }
@@ -31,7 +30,16 @@ export default {
         Scroll(link) {
             ScrollToElem(link)
         },
-    }
+        ...mapActions('promoBlock', ['GET_PROMO'])
+    },
+    computed: {
+        ...mapState('promoBlock', {
+            promo: "promo"
+        })
+    },
+    created() {
+        this.GET_PROMO()
+    },
 }
 </script>
 
@@ -58,6 +66,7 @@ export default {
     color: #95A1BB;
     font-family: "rr";
     margin-bottom: 213px;
+    max-width: 400px;
 }
 .default-purple-a {
     text-decoration: none;

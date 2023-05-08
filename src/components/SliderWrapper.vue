@@ -4,8 +4,8 @@
 
         <swiper class="swiper container" :options="swiperOption" :social="social.content">
             <swiper-slide
-                v-for="(slide, index) in social.content"
-                :key="index"
+              v-for="(slide, index) in social.content"
+              :key="index"
             >
                 <a :href="slide.link"><img :src="slide.icon" alt="slide"/></a>
             </swiper-slide>
@@ -147,7 +147,7 @@ export default {
         max-width: 120px;
     }
     .swiper-slide img {
-      margin-left: -15px;
+        margin-left: -15px;
     }
 }
 </style>

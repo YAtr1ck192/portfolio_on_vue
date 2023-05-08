@@ -2,9 +2,9 @@
     <div class="app">
         <HeaderBlock />
         <MainInfo id="about" />
-        <SkillsBlock id="skills" :skills="skills"/>
-        <SocialNetworkBlock id="social" :social="social" />
-        <LastPostsBlock id="blog" :posts="posts"/>
+        <SkillsBlock id="skills"/>
+        <SocialNetworkBlock id="social" />
+        <LastPostsBlock id="blog"/>
         <FormBlock id="contact-us"/>
         <FooterBlock />
     </div>
@@ -29,13 +29,6 @@ export default {
         MainInfo,
         HeaderBlock,
         SkillsBlock
-    },
-    data () {
-        return {
-            skills: {},
-            social: {},
-            posts: {}
-        }
     },
 }
 </script>
