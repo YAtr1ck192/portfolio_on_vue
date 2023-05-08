@@ -1,23 +1,36 @@
 =<template>
     <section id="blog" class="default-block container">
-        <h2 class="block-title-blog">{{ posts.title }}</h2>
-        <a href="#" class="default-purple-a all-posts-a first-post-a">{{ posts.linkContent }}</a>
+        <h2 class="block-title-blog">{{ title }}</h2>
+        <router-link
+                to="/blog"
+                class="default-purple-a all-posts-a first-post-a"
+        >{{ linkContent }}
+        </router-link>
         <lastPost
-            v-for="(item, index) in posts.content"
+            v-for="(item, index) in posts"
             :key="index"
-            :posts="item"
+            :post="item"
         />
-        <a href="#" class="default-purple-a all-posts-a second-post-a">{{ posts.linkContent }}</a>
+        <router-link
+                to="/blog"
+                class="default-purple-a all-posts-a second-post-a"
+        >{{ linkContent }}
+        </router-link>
     </section>
 </template>
 
 <script>
-
-import lastPost from "@/components/last-post.vue";
+import lastPost from "@/components/post-card.vue";
 import {mapActions, mapState} from "vuex";
 
 export default {
     name: "last-posts-block",
+    data () {
+        return {
+            title: "Последние посты",
+            linkContent: "Все посты",
+        }
+    },
     components: {
         lastPost,
     },

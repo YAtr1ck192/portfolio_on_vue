@@ -1,20 +1,26 @@
 <template>
     <article class="article-card">
-        <img class="article-img" :src="posts.postImg" alt="article-img">
+        <img class="article-img" :src="post.postImg" alt="article-img">
         <div class="article-card-desc">
             <div class="article-title-and-desc">
-                <div class="card-title blog-title">{{ posts.title }}</div>
+                <div class="card-title blog-title">{{ post.title }}</div>
                 <div class="card-desc article-desc">
-                    <p>{{ posts.description }}</p>
+                    <p>{{ post.description }}</p>
                 </div>
             </div>
             <div class="bottom-card-item">
                 <div class="small-p date-add">
-                    {{ posts.date }}
+                    {{ post.date }}
                 </div>
-                <a class="default-purple-a" :href="posts.link">{{ linkContent }}</a>
+                <router-link
+                        class="default-purple-a"
+                        :to="{name: 'post', params: { id: post.id }}"
+                >
+                    {{ post.linkContent }}
+                </router-link>
             </div>
         </div>
+        <router-view />
     </article>
 </template>
 
@@ -22,14 +28,8 @@
 export default {
     name: "last-post",
     props:[
-        'posts'
+        'post'
     ],
-    data () {
-        return {
-            linkContent: 'READ MORE'
-        }
-    },
-
 }
 </script>
 
@@ -75,6 +75,10 @@ export default {
     justify-content: space-between;
     width: 460px;
 }
+a {
+    font-size: 14px;
+}
+
 @media screen and (max-width:1000px) and (min-width: 520px) {
     .article-img{
         margin-right: 0;

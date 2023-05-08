@@ -45,6 +45,20 @@
     font-size: 12px;
     font-family: "rm";
 }
+.default-purple-button {
+    color: white;
+    background: #6E38F7;
+    border: solid 1px transparent;
+    border-radius: 4px;
+    font-size: 12px;
+    font-family: "rm";
+    cursor: pointer;
+}
+.default-purple-button:hover {
+    border: solid 1px #6E38F7;
+    color: #6E38F7;
+    background: white;
+}
 @media screen and (min-width: 941px) and (max-width: 1000px) {
     .container {
         padding: 0 26px 0 26px;

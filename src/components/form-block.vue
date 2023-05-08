@@ -163,20 +163,8 @@ export default {
 .form-button {
     padding: 13px 60px;
 }
-.default-purple-button {
-    color: white;
-    background: #6E38F7;
-    border: solid 1px transparent;
-    border-radius: 4px;
-    font-size: 12px;
-    font-family: "rm";
-    cursor: pointer;
-}
-.default-purple-button:hover {
-    border: solid 1px #6E38F7;
-    color: #6E38F7;
-    background: white;
-}
+
+
 .error-form {
     border: solid 1px #DF1F1F;
     padding: 12px 0 12px 15px;

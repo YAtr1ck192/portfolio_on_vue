@@ -1,8 +1,9 @@
 <template>
     <header>
         <div class="container">
-            <img class="header-logo" src="/images/header-logo.png"/>
-
+            <router-link to="/">
+                <img class="header-logo" src="/images/header-logo.png"/>
+            </router-link>
             <div class="burger-menu" :class="{'opened': menuIsShow}" @click="toggleMenu">
                 <span class="line line1"></span>
                 <span class="line line2"></span>

@@ -1,24 +1,24 @@
 import axios from "axios";
 
-const postsBlock = {
+const post = {
     namespaced: true,
     state: {
-        posts: {}
+        post: {}
     },
     actions: {
-        async GET_POSTS({ commit }) {
+        async GET_POST({ commit }) {
             axios
                 .get('/api/posts.json')
                 .then(response => {
                     const data = response.data.posts
-                    commit('SET_POSTS', data)
+                    commit('SET_POST', data)
                 })
         }
     },
     mutations: {
-        SET_POSTS (state, data) {
-            state.posts = data
+        SET_POST(state, data) {
+            state.post = data.content
         }
     },
 }
-export default postsBlock
+export default post
