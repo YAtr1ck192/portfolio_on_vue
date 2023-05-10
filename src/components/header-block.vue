@@ -11,16 +11,30 @@
             </div>
 
             <nav :class="{'active': menuIsShow}">
-                <a
-                    v-for="(item, index) in items"
-                    :key="index"
-                    :href="item.navLink"
-                    @click.prevent.stop="Scroll(item.navLink)"
-                    class="default-purple-a nav-item"
-                    :class="{'disabled': item.disabled}"
+                <template
+                        v-for="(item) in items"
                 >
-                    {{ item.navItem }}
-                </a>
+                    <a
+                            v-if="!item.linkIsRouter"
+                            :key="item"
+                            :href="item.navLink"
+                            @click.prevent.stop="Scroll(item.navLink)"
+                            class="default-purple-a nav-item"
+                            :class="{'disabled': item.disabled}"
+                    >
+
+                        {{ item.navItem }}
+                    </a>
+                    <router-link
+                            v-if="item.linkIsRouter"
+                            :key="item"
+                            :to="item.navLink"
+                            class="default-purple-a nav-item"
+                    >
+                        {{ item.navItem }}
+                    </router-link>
+                </template>
+
             </nav>
         </div>
     </header>
@@ -35,11 +49,11 @@ export default {
     data() {
         return {
             items: [
-                {navItem: 'ABOUT', navLink: '#about'},
-                {navItem: 'SKILLS', navLink: '#skills'},
-                {navItem: 'SOCIAL', navLink: '#social'},
-                {navItem: 'CONTACTS US', navLink: '#contact-us'},
-                {navItem: 'BLOG', navLink: '#blog',}
+                {navItem: 'ABOUT', navLink: '#about', linkIsRouter: false},
+                {navItem: 'SKILLS', navLink: '#skills', linkIsRouter: false},
+                {navItem: 'SOCIAL', navLink: '#social', linkIsRouter: false},
+                {navItem: 'CONTACTS US', navLink: '#contact-us', linkIsRouter: false},
+                {navItem: 'BLOG', navLink: '/blog', linkIsRouter: true}
             ],
             menuIsShow: false,
             disabled: true
@@ -90,7 +104,7 @@ nav {
     font-family: "rm";
     cursor: pointer;
 }
-nav .nav-item:hover {
+nav .nav-item:hover, router-link:hover {
     border-bottom: solid 1px #6E38F7;
 }
 .burger-menu {
