@@ -28,6 +28,9 @@ export default {
         align-items: center;
         justify-content: center;
         flex-direction: column;
+        padding: 45px;
+        border: solid 1px #E1E5EE;
+        border-radius: 5px;
     }
     h2 {
         padding: 0;
@@ -38,11 +41,6 @@ export default {
         margin-bottom: 40px;
         max-width: 400px;
         text-align: center;
-    }
-    .post-contact-us-block {
-        padding: 45px;
-        border: solid 1px #E1E5EE;
-        border-radius: 5px;
     }
     .post-button {
         padding: 13px 30px;

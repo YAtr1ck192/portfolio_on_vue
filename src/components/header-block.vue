@@ -1,40 +1,43 @@
 <template>
     <header>
         <div class="container">
-            <router-link to="/">
-                <img class="header-logo" src="/images/header-logo.png"/>
-            </router-link>
+            <p class="router-link-box" @click.prevent.stop="closeMenu">
+                <router-link to="/">
+                    <img class="header-logo" src="/images/header-logo.png" alt="header-logo"/>
+                </router-link>
+            </p>
             <div class="burger-menu" :class="{'opened': menuIsShow}" @click="toggleMenu">
                 <span class="line line1"></span>
                 <span class="line line2"></span>
                 <span class="line line3"></span>
             </div>
-
             <nav :class="{'active': menuIsShow}">
                 <template
-                        v-for="(item) in items"
+                        v-for="(item, index) in items"
                 >
                     <a
                             v-if="!item.linkIsRouter"
-                            :key="item"
+                            :key="index"
                             :href="item.navLink"
                             @click.prevent.stop="Scroll(item.navLink)"
                             class="default-purple-a nav-item"
-                            :class="{'disabled': item.disabled}"
                     >
-
                         {{ item.navItem }}
                     </a>
-                    <router-link
-                            v-if="item.linkIsRouter"
-                            :key="item"
+                    <p
+                        class="router-link-box"
+                        v-if="item.linkIsRouter"
+                        :key="index"
+                        @click="toggleMenu"
+                    >
+                        <router-link
                             :to="item.navLink"
                             class="default-purple-a nav-item"
-                    >
-                        {{ item.navItem }}
-                    </router-link>
+                        >
+                            {{ item.navItem }}
+                        </router-link>
+                    </p>
                 </template>
-
             </nav>
         </div>
     </header>
@@ -63,56 +66,60 @@ export default {
         toggleMenu() {
             this.menuIsShow = !this.menuIsShow
             let body = document.querySelector('body');
-            this.menuIsShow !== false ? body.style.overflow = 'hidden' : body.style.overflow = '';
+            this.menuIsShow === true ? body.style.overflow = 'hidden' : body.style.overflow = '';
         },
         Scroll(navLink) {
-            this.menuIsShow = false;
+            ScrollToElem(navLink)
+            this.toggleMenu()
+        },
+        closeMenu() {
+            this.menuIsShow = false
             let body = document.querySelector('body');
             body.style.overflow = '';
-            ScrollToElem(navLink)
-        },
+        }
     }
 }
 </script>
 
 <style scoped>
-header {
-    width: 100%;
-    background: #fff;
-}
-header .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: white;
-}
-.header-logo {
-    padding: 20px 0;
-    align-items: center;
-}
-nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 370px;
-}
-.nav-item {
-    text-decoration: none;
-    border-bottom: solid 1px transparent;
-    color: #6E38F7;
-    font-size: 12px;
-    font-family: "rm";
-    cursor: pointer;
-}
-nav .nav-item:hover, router-link:hover {
-    border-bottom: solid 1px #6E38F7;
-}
-.burger-menu {
-    display: none;
-    cursor: pointer;
-}
+    header {
+        width: 100%;
+        background: #fff;
+    }
+    header .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: white;
+    }
+    .header-logo {
+        padding: 20px 0;
+        align-items: center;
+    }
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 370px;
+    }
+    .nav-item {
+        text-decoration: none;
+        border-bottom: solid 1px transparent;
+        color: #6E38F7;
+        font-size: 12px;
+        font-family: "rm";
+        cursor: pointer;
+    }
+    nav .nav-item:hover, router-link:hover {
+        border-bottom: solid 1px #6E38F7;
+    }
+    .burger-menu {
+        display: none;
+        cursor: pointer;
+    }
 
 @media screen and (max-width: 980px) {
+
     .burger-menu {
         height: 12px;
         width: 16px;
@@ -122,9 +129,7 @@ nav .nav-item:hover, router-link:hover {
         justify-content: space-between;
         margin-right: 22px;
     }
-    .active {
-        width: 100%;
-    }
+
     .burger-menu .line {
         width: 100%;
         height: 2px;
@@ -161,22 +166,24 @@ nav .nav-item:hover, router-link:hover {
     nav {
         display: none;
     }
+
     nav.active {
         display: flex;
         flex-direction: column;
         position: fixed;
         background: #ffffff;
-        top: 76px;
+        top: 80px;
         left: 0;
         right: 0;
         bottom: 0;
         z-index: 10;
-        padding: 15px;
+        padding: 15px 0;
         align-items: center;
         justify-content: flex-start;
-        height: 89.9vh;
+        height: 100vh;
+        width: 100%;
     }
-    a {
+    .active .nav-item {
         margin-bottom: 20px;
     }
 }
