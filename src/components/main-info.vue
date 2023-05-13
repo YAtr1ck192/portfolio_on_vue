@@ -74,6 +74,9 @@ export default {
     .main-info-left-part .person-name {
         max-width: 200px;
     }
+    .main-image{
+        width: 430px;
+    }
 }
 @media screen and (min-width: 620px) and (max-width: 819px) {
     .main-info-left-part .person-name {

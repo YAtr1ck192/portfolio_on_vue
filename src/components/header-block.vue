@@ -15,7 +15,7 @@
                 <template
                         v-for="(item, index) in items"
                 >
-                    <a
+<!--                    <a
                             v-if="!item.linkIsRouter"
                             :key="index"
                             :href="item.navLink"
@@ -23,18 +23,19 @@
                             class="default-purple-a nav-item"
                     >
                         {{ item.navItem }}
-                    </a>
+                    </a>-->
                     <p
-                        class="router-link-box"
+                        class="router-link-box nav-item"
                         v-if="item.linkIsRouter"
                         :key="index"
-                        @click="toggleMenu"
                     >
                         <router-link
-                            :to="item.navLink"
+                            :to="item.linkToPage"
                             class="default-purple-a nav-item"
                         >
-                            {{ item.navItem }}
+                            <a :href="item.navLink" @click="Scroll(item.navLink)">
+                                {{ item.navItem }}
+                            </a>
                         </router-link>
                     </p>
                 </template>
@@ -52,11 +53,11 @@ export default {
     data() {
         return {
             items: [
-                {navItem: 'ABOUT', navLink: '#about', linkIsRouter: false},
-                {navItem: 'SKILLS', navLink: '#skills', linkIsRouter: false},
-                {navItem: 'SOCIAL', navLink: '#social', linkIsRouter: false},
-                {navItem: 'CONTACTS US', navLink: '#contact-us', linkIsRouter: false},
-                {navItem: 'BLOG', navLink: '/blog', linkIsRouter: true}
+                {navItem: 'ABOUT', navLink: '#about', linkToPage: '/', linkIsRouter: true},
+                {navItem: 'SKILLS', navLink: '#skills', linkToPage: '/', linkIsRouter: true},
+                {navItem: 'SOCIAL', navLink: '#social', linkToPage: '/', linkIsRouter: true},
+                {navItem: 'CONTACTS US', navLink: '#contact-us', linkToPage: '/', linkIsRouter: true},
+                {navItem: 'BLOG', navLink: '#blogPage', linkToPage: '/blog', linkIsRouter: true}
             ],
             menuIsShow: false,
             disabled: true
@@ -102,7 +103,7 @@ export default {
         justify-content: space-between;
         width: 370px;
     }
-    .nav-item {
+    .nav-item a{
         text-decoration: none;
         border-bottom: solid 1px transparent;
         color: #6E38F7;
@@ -183,7 +184,7 @@ export default {
         height: 100vh;
         width: 100%;
     }
-    .active .nav-item {
+    .router-link-box.nav-item {
         margin-bottom: 20px;
     }
 }
