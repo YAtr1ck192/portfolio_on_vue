@@ -84,18 +84,22 @@ export default {
         margin-top: 10px;
         margin-bottom: 15px;
     }
-    .main-info{
+
+    .main-info {
         flex-wrap: wrap;
         flex-direction: column;
     }
+
     .main-info-left-part .small-p {
         margin-bottom: 30px;
     }
+
     .main-info .main-image {
         margin-top: 26px;
         margin-bottom: 76px;
     }
-    .main-image{
+
+    .main-image {
         position: static;
         width: 558px;
     }

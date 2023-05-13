@@ -2,31 +2,31 @@
   "posts": {
     "content": [
       {
-        "postImg": "/images/article-img.jpg",
+        "img": "/images/article-img.jpg",
         "title": "Я почти мега котик",
         "description": "Скоро на проектик))",
         "date": "10 May 23",
         "link": "/posts/id",
         "linkContent": "Читать полностью",
-        "id": "1"
+        "id": "0"
       },
       {
-        "postImg": "/images/article-img.jpg",
+        "img": "/images/article-img.jpg",
         "title": "Я уже чуть побольше котик",
         "description": "Я послушал всякие лекции, поделал задания, но кажется я все-таки котик и у меня лапки.",
         "date": "30 Apr 23",
         "link": "/posts/id",
         "linkContent": "Читать полностью",
-        "id": "2"
+        "id": "1"
       },
       {
-        "postImg": "/images/article-img.jpg",
+        "img": "/images/article-img.jpg",
         "title": "Я маленький котик",
         "description": "Я маленький котик. Я маленький котик. Я маленький котик. Я маленький котик. Я маленький котик.",
         "date": "30 Mar 23",
         "link": "/posts/id",
         "linkContent": "Читать полностью",
-        "id": "3"
+        "id": "2"
       }
     ]
   }

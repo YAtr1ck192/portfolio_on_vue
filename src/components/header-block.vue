@@ -15,15 +15,6 @@
                 <template
                         v-for="(item, index) in items"
                 >
-<!--                    <a
-                            v-if="!item.linkIsRouter"
-                            :key="index"
-                            :href="item.navLink"
-                            @click.prevent.stop="Scroll(item.navLink)"
-                            class="default-purple-a nav-item"
-                    >
-                        {{ item.navItem }}
-                    </a>-->
                     <p
                         class="router-link-box nav-item"
                         v-if="item.linkIsRouter"
@@ -70,15 +61,16 @@ export default {
             this.menuIsShow === true ? body.style.overflow = 'hidden' : body.style.overflow = '';
         },
         Scroll(navLink) {
+            console.log(window.location.href)
             ScrollToElem(navLink)
-            this.toggleMenu()
+            this.closeMenu()
         },
         closeMenu() {
             this.menuIsShow = false
             let body = document.querySelector('body');
             body.style.overflow = '';
         }
-    }
+    },
 }
 </script>
 

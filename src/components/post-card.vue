@@ -1,6 +1,6 @@
 <template>
     <article class="article-card">
-        <img class="article-img" :src="post.postImg" alt="article-img">
+        <img class="article-img" :src="post.img" alt="article-img">
         <div class="article-card-desc">
             <div class="article-title-and-desc">
                 <div class="card-title blog-title">{{ post.title }}</div>
@@ -106,5 +106,4 @@ a {
         padding-top: 32px;
     }
 }
-@import "@/css/global_styles.css";
 </style>
