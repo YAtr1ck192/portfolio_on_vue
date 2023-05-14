@@ -19,14 +19,13 @@
                         class="router-link-box nav-item"
                         v-if="item.linkIsRouter"
                         :key="index"
+                        @click="Scroll(item.navLink)"
                     >
                         <router-link
-                            :to="item.linkToPage"
+                            :to="item.linkToPage + item.navLink"
                             class="default-purple-a nav-item"
                         >
-                            <a :href="item.navLink" @click="Scroll(item.navLink)">
-                                {{ item.navItem }}
-                            </a>
+                            {{ item.navItem }}
                         </router-link>
                     </p>
                 </template>
@@ -61,7 +60,6 @@ export default {
             this.menuIsShow === true ? body.style.overflow = 'hidden' : body.style.overflow = '';
         },
         Scroll(navLink) {
-            console.log(window.location.href)
             ScrollToElem(navLink)
             this.closeMenu()
         },
