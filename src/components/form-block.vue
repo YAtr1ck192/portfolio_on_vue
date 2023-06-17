@@ -11,10 +11,6 @@
               type="text"
               name="name"
               placeholder="Your name"
-              @change="nameValFunc(
-                nameForm.nameValidation,
-                nameForm.formNameContent
-              )"
             >
             <input
               :class="[ {'error-form' : emailForm.errorEmail}, 'form' ]"
@@ -22,10 +18,7 @@
               type="text"
               name="email"
               placeholder="Email"
-              @change="emailValFunc(
-                emailForm.emailValidation,
-                emailForm.formEmailContent
-              )"
+
             >
             <textarea
               v-model="descForm.descContent"
@@ -34,7 +27,6 @@
               cols="30"
               rows="10"
               placeholder="Description (optional)"
-              @change="textAreaValidationFunc()"
             ></textarea>
         </div>
         <button
@@ -60,54 +52,37 @@ export default {
             },
             nameForm: {
                 formNameContent: '',
-                nameValidation: new RegExp(/^[a-zA-Z]+$/),
                 errorName: '',
             },
             emailForm: {
                 formEmailContent: '',
-                emailValidation: new RegExp("^((([0-9A-Za-z]{1}[-0-9A-z\\.]{0,30}[0-9A-Za-z]?)|([0-9А-Яа-я]{1}[-0-9А-я\\.]{0,30}[0-9А-Яа-я]?))@([-A-Za-z]{1,}\\.){1,}[-A-Za-z]{2,})$"),
                 errorEmail: false,
             },
             descForm: {
                 formMessage: '',
                 descContent: ''
             },
-            mes:''
+            mes:'',
+            urlApi: 'https://api.telegram.org/bot' + this.token +'/sendMessage?chat_id='+ this.chatId + '&parse_mode=html&text=' + this.order + ',r'
         }
     },
     methods: {
-        textAreaValidationFunc () {
-            const val = ['1', '2']
-            for (let i = 0; i < val.length; i++){
-                this.descForm.descContent = this.descForm.descContent.split(val[i]).join('*')
-            }
-        },
-        nameValFunc (val, content) {
-            this.nameForm.errorName = !val.test(content)
-        },
-        emailValFunc (val, content) {
-            this.emailForm.errorEmail = !val.test(content)
-        },
         postData () {
-            if (this.nameForm.formNameContent && this.emailForm.formEmailContent) {
-                if (!this.nameForm.errorName && !this.emailForm.errorEmail){
-                    axios.post('https://jsonplaceholder.typicode.com/users', {
-                        postName: this.nameForm.formNameContent,
-                        postEmail: this.emailForm.formEmailContent,
-                        postDesc: this.descForm.descContent
-                    })
-                      .then(response => {
-                          this.mes = response.status
-                          this.nameForm.formNameContent = response.data.postName
-                          this.emailForm.formEmailContent = response.data.postEmail
-                          this.descForm.descContent = response.data.postDesc
-                          console.log(this.mes)
-                          console.log(this.nameForm.formNameContent)
-                          console.log(this.emailForm.formEmailContent)
-                          console.log(this.descForm.descContent)
-                      })
-                }
-            }
+            let token = '6083356212:AAESlJYoQDlXJvRW2JOfrbPOVYhapwzud1Y'
+            let chatId = '-995590795'
+            let order = 'Заказ: \n'
+            let urlTest = 'https://api.telegram.org/bot' + token + '/sendMessage'
+
+            order += 'name: ' + this.nameForm.formNameContent + '\n'
+            order += 'email: ' + this.emailForm.formEmailContent + '\n'
+            order += 'mes: ' + this.descForm.descContent + '\n'
+            console.log(order)
+
+            axios.post(urlTest, {
+                chat_id: chatId,
+                parse_mode: 'html',
+                text: order
+            })
         }
     },
 }
